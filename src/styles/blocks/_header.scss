@@ -13,7 +13,7 @@
 
   &__container {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
 
     @include adaptive-clamp('column-gap', 40, 20);
@@ -27,17 +27,22 @@
     column-gap: 1rem;
   }
 
+  &__logo {
+    font-family: var(--second-family);
+    font-size: fluid(30, 20);
+    color: var(--color-light);
+  }
+
   &__actions {
     position: relative;
     z-index: 5;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: rem(15);
+    gap: rem(10);
   }
 
-  &__github,
-  &__codewars {
+  &__action {
     --size: #{rem(44)};
 
     @include square(var(--size));
