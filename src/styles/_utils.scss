@@ -30,6 +30,12 @@ p {
   @include visually-hidden;
 }
 
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none; // запрещаем взаимодействие
+}
+
 // .hidden-mobile {
 //   @include mobile {
 //     display: none !important;
@@ -40,10 +46,4 @@ p {
 //   @include mobile-above {
 //     display: none !important;
 //   }
-// }
-
-// .disabled {
-//   opacity: 0.5;
-//   cursor: default;
-//   pointer-events: none; // запрещаем взаимодействие
 // }

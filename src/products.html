@@ -26,22 +26,24 @@
     <link rel="stylesheet" href="styles/main.scss" />
     <script type="module" src="js/app.js"></script>
   </head>
-
   <body>
     <div class="wrapper">
       <header class="header" data-header data-right-padding>
         <div class="header__container">
-          <a class="logo header__logo">Optica</a>
+          <a href="./index.html" class="logo header__logo">Optica</a>
           <div class="header__overlay">
             <nav class="header__menu menu" data-header-menu>
               <ul class="menu__list">
                 <li class="menu__item">
-                  <a href="#" class="menu__link hover-link" data-goto=".about"
+                  <a href="./index.html#about" class="menu__link hover-link" data-goto=".about"
                     >ПРО НАС</a
                   >
                 </li>
                 <li class="menu__item">
-                  <a href="./catalog.html" class="menu__link hover-link"
+                  <a
+                    href="#"
+                    class="menu__link hover-link"
+                    data-goto=".products"
                     >ПРОДУКТИ</a
                   >
                 </li>
@@ -117,195 +119,16 @@
       </header>
       <main class="page">
         <section
-          class="parent-video-fon page__hero hero"
-          aria-labelledby="hero-title"
+          class="page__products products"
+          aria-labelledby="products-title"
         >
-          <div class="hero__container">
-            <div class="hero__body">
-              <div class="hero__subtitle">
-                <p>
-                  Завітайте до нашого магазину — ми допоможемо підібрати
-                  ідеальні окуляри та надамо безкоштовну консультацію
-                </p>
-              </div>
-              <h1 class="hero__title" id="hero-title">
-                Ми допоможемо вам побачити світ по-новому.
-              </h1>
-              <div class="hero__buttons">
-                <a href="#" class="hero__button button" data-goto="."
-                  >ПРО НАС</a
-                >
-                <a href="#" class="hero__button button" data-goto="."
-                  >ПРОДУКТИ</a
-                >
-              </div>
+          <div class="products__container">
+            <div class="products__header header-block">
+              <h1 class="header-block__title" id="products-title">Catalog</h1>
             </div>
+            <ul class="products__items" data-products-catalog></ul>
           </div>
-          <video class="video-fon" autoplay muted loop>
-            <source type="video/mp4" src="assets/video/6.mp4" />
-          </video>
-          <button
-            type="button"
-            class="scroll-down-btn"
-            data-goto=".about"
-            title="scroll down"
-            aria-label="scroll-down"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="50"
-              height="80"
-              viewBox="0 0 50 80"
-            >
-              <path
-                class="first-path"
-                fill="#FFFFFF"
-                d="M24.752,79.182c-0.397,0-0.752-0.154-1.06-0.463L2.207,57.234c-0.306-0.305-0.458-0.656-0.458-1.057
-        s0.152-0.752,0.458-1.059l2.305-2.305c0.309-0.309,0.663-0.461,1.06-0.461c0.398,0,0.752,0.152,1.061,0.461l18.119,18.119
-        l18.122-18.119c0.306-0.309,0.657-0.461,1.057-0.461c0.402,0,0.753,0.152,1.059,0.461l2.306,2.305
-        c0.308,0.307,0.461,0.658,0.461,1.059s-0.153,0.752-0.461,1.057L25.813,78.719C25.504,79.027,25.15,79.182,24.752,79.182z"
-              />
-              <path
-                class="second-path"
-                fill="#FFFFFF"
-                d="M24.752,58.25c-0.397,0-0.752-0.154-1.06-0.463L2.207,36.303c-0.306-0.304-0.458-0.655-0.458-1.057
-        c0-0.4,0.152-0.752,0.458-1.058l2.305-2.305c0.309-0.308,0.663-0.461,1.06-0.461c0.398,0,0.752,0.153,1.061,0.461l18.119,18.12
-        l18.122-18.12c0.306-0.308,0.657-0.461,1.057-0.461c0.402,0,0.753,0.153,1.059,0.461l2.306,2.305
-        c0.308,0.306,0.461,0.657,0.461,1.058c0,0.401-0.153,0.753-0.461,1.057L25.813,57.787C25.504,58.096,25.15,58.25,24.752,58.25z"
-              />
-            </svg>
-          </button>
         </section>
-
-        <!-- <section id="best-products" class="page__best-products best-products">
-          <div class="best-products__container">
-            <div class="best-products__header">
-              <h2 class="best-products__title">best-products</h2>
-              <div class="best-products__subtitle">
-                <p>
-                  Every shoot is a story. Here you’ll find portraits, love
-                  stories, family sessions, and more.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="best-products__slider slider">
-            <div class="slider__scroll-wrapper">
-              <div class="slider__scroll-zone slider__scroll-zone--left"></div>
-              <div class="slider__scroll-zone slider__scroll-zone--right"></div>
-            </div>
-            <div class="slider__wrapper">
-              <div class="slider__slide slider__slide--1">
-                <img
-                  src="assets/img/slider/1.webp"
-                  alt="slide"
-                  width="400"
-                  height="534"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--2">
-                <img
-                  src="assets/img/slider/2.webp"
-                  alt="slide"
-                  width="220"
-                  height="220"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--3">
-                <img
-                  src="assets/img/slider/3.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--4">
-                <img
-                  src="assets/img/slider/4.webp"
-                  alt="slide"
-                  width="400"
-                  height="534"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--5">
-                <img
-                  src="assets/img/slider/5.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--6">
-                <img
-                  src="assets/img/slider/6.webp"
-                  alt="slide"
-                  width="220"
-                  height="220"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--7">
-                <img
-                  src="assets/img/slider/7.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--8">
-                <img
-                  src="assets/img/slider/8.webp"
-                  alt="slide"
-                  width="400"
-                  height="534"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--9">
-                <img
-                  src="assets/img/slider/9.webp"
-                  alt="slide"
-                  width="220"
-                  height="220"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--10">
-                <img
-                  src="assets/img/slider/10.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--11">
-                <img
-                  src="assets/img/slider/11.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--12">
-                <img
-                  src="assets/img/slider/12.webp"
-                  alt="slide"
-                  width="400"
-                  height="534"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </section> -->
       </main>
       <footer class="footer">
         <div class="footer__container">

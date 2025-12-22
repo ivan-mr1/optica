@@ -3,18 +3,18 @@ import { defineConfig } from 'vite';
 import { sync } from 'glob';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
-const noAttr = () => {
-  return {
-    transformIndexHtml(html) {
-      return html.replaceAll(' crossorigin', '');
-    },
-  };
-};
+// const noAttr = () => {
+//   return {
+//     transformIndexHtml(html) {
+//       return html.replaceAll(' crossorigin', '');
+//     },
+//   };
+// };
 
 export default defineConfig({
   plugins: [
     SassGlob(),
-    noAttr(),
+    // noAttr(),
     ViteImageOptimizer({
       png: {
         quality: 70,
