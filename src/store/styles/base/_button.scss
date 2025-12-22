@@ -1,0 +1,25 @@
+@use '../../../styles/helpers/' as *;
+
+.button {
+  padding-block: rem(16);
+  padding-inline: rem(40);
+  font-size: rem(20);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--c-white);
+  background-color: var(--c-orange);
+  border-radius: rem(8);
+  transition: all 0.3s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--c-dark);
+    }
+  }
+
+  &--card {
+    width: 100%;
+  }
+}

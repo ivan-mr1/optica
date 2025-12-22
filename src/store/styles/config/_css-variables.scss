@@ -1,0 +1,34 @@
+@use 'functions' as *;
+
+// --f-font-size: #{rem(16)}; #{rgba(#000, 10%) (если используем функции в css переменных, надо обернуть в #{} , иначе функции не будут работать)
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --ff-primary: 'Roboto', sans-serif;
+  --ff-secondary: 'Roboto', sans-serif;
+  --f-font-size: #{rem(18)};
+  --f-font-size-mobile: #{rem(16)};
+  --f-font-weight: 400;
+  --f-line-height: 1;
+
+  --main-color: var(--c-dark);
+  --second-color: var(--c-dark);
+  --accent-color: var(--c-purple);
+  --hover-color: var(--c-scrollUp);
+  --hover-background: var(--c-scrollUp);
+  --c-scrollUp: #966749;
+
+  --c-white: #ffffff;
+  --c-purple: #9333ea;
+  --c-bg-body: #edf0f5;
+  --c-lightgrey: #b2b2b9;
+  --c-dark: #0f172a;
+  --c-orange: #e89f71;
+  --c-pink: #e97171;
+  --c-black: #{rgba(#000000, 10%)};
+
+  --transition: 0.3s ease 0s;
+  --b-radius: #{rem(10)};
+}
+
+$headerContainerHeigthBig: 144; // для высоты подложки безопасности, чтобы пункты меню не налазили на логотип, а появлялась прокрутка
+$headerContainerHeigthSmall: 60; // для высоты подложки безопасности, чтобы пункты меню не налазили на логотип, а появлялась прокрутка

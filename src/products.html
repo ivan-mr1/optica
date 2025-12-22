@@ -35,7 +35,10 @@
             <nav class="header__menu menu" data-header-menu>
               <ul class="menu__list">
                 <li class="menu__item">
-                  <a href="./index.html#about" class="menu__link hover-link" data-goto=".about"
+                  <a
+                    href="./index.html#about"
+                    class="menu__link hover-link"
+                    data-goto=".about"
                     >ПРО НАС</a
                   >
                 </li>
@@ -73,7 +76,7 @@
               <a
                 target="_blank"
                 href="/"
-                class="header__action header__card"
+                class="header__action header__card shopping-cart js-cart-icon js-cart-btn"
                 aria-label="Open card"
                 title="Open card"
               >
@@ -124,11 +127,56 @@
         >
           <div class="products__container">
             <div class="products__header header-block">
-              <h1 class="header-block__title" id="products-title">Catalog</h1>
+              <h1
+                class="header-block__title products__title"
+                id="products-title"
+              >
+                Catalog
+              </h1>
             </div>
-            <ul class="products__items" data-products-catalog></ul>
+            <ul class="products__list" data-products-catalog></ul>
           </div>
         </section>
+
+        <div class="pagination__container">
+          <div class="pagination js-pagination hidden">
+            <button
+              type="button"
+              class="pagination-btn pagination-btn-prev js-pagination-btn-prev"
+            >
+              <svg
+                style="transform: rotate(180deg) scale(0.55)"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#84868E"
+                  d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"
+                />
+              </svg>
+            </button>
+            <ul class="pagination__list js-pagination-list"></ul>
+            <button
+              type="button"
+              class="pagination-btn pagination-btn-next js-pagination-btn-next"
+            >
+              <svg
+                style="transform: rotate(0deg) scale(0.55)"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#84868E"
+                  d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
       </main>
       <footer class="footer">
         <div class="footer__container">
