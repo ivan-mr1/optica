@@ -68,9 +68,9 @@
                   height="44"
                 />
               </a>
-              <a
-                target="_blank"
-                href="/"
+              <button
+                type="button"
+                data-popup-link="popup-cart"
                 class="header__action header__card shopping-cart js-cart-icon js-cart-btn"
                 aria-label="Open card"
                 title="Open card"
@@ -82,7 +82,7 @@
                   width="44"
                   height="44"
                 />
-              </a>
+              </button>
               <a
                 target="_blank"
                 href="/"
@@ -132,7 +132,7 @@
                 Ми допоможемо вам побачити світ по-новому.
               </h1>
               <div class="hero__buttons">
-                <a href="#" class="hero__button button" data-goto="."
+                <a href="#" class="hero__button button" data-goto=".about"
                   >ПРО НАС</a
                 >
                 <a href="./products.html" class="hero__button button"
@@ -193,18 +193,19 @@
               </div>
               <div class="about__descr">
                 <div class="about__header header-block">
-                  <h2 class="header-block__title" id="about-title">
-                    About us
-                  </h2>
+                  <h2 class="header-block__title" id="about-title">Про нас</h2>
                 </div>
                 <div class="about__text">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Maxime quibusdam pariatur laboriosam deleniti illo magni,
-                    beatae alias aut. Nam perferendis aut, ipsam, ad obcaecati
-                    possimus ipsum quos recusandae fugiat odit quo tenetur
-                    labore eligendi harum amet cumque vel molestias. Qui aliquam
-                    molestias voluptatem tempore consectetur.
+                    OPTICA – це більше, ніж просто місце призначення, це подорож
+                    у світ стилю, майстерності та самовираження. Ми вважаємо, що
+                    вибір окулярів має бути натхненним, а не поспіхом. Саме тому
+                    ми створили теплий, гостинний простір, де ви можете
+                    сповільнитися, дослідити виняткові дизайни та відкрити для
+                    себе вироби, які справді відображають вашу особистість.
+                    Відвідайте нас за адресою ..., та відчуйте новий спосіб
+                    бачення – де бачення стає мистецтвом, а окуляри – вашим
+                    вираженням.
                   </p>
                 </div>
               </div>
@@ -218,7 +219,9 @@
         >
           <div class="partners__container">
             <div class="partners__header-block header-block">
-              <h2 class="header-block__title">Популярні бренди</h2>
+              <h2 class="header-block__title" id="partners-title">
+                Популярні бренди
+              </h2>
             </div>
             <div
               class="scroller partners__scroller"
@@ -357,135 +360,181 @@
           </div>
         </section>
 
-        <!-- <section id="best-products" class="page__best-products best-products">
-          <div class="best-products__container">
-            <div class="best-products__header">
-              <h2 class="best-products__title">best-products</h2>
-              <div class="best-products__subtitle">
-                <p>
-                  Every shoot is a story. Here you’ll find portraits, love
-                  stories, family sessions, and more.
-                </p>
+        <section
+          class="page__articles articles"
+          aria-labelledby="articles-title"
+        >
+          <div class="articles__container">
+            <div class="articles__header-block header-block">
+              <h2 class="header-block__title" id="articles-title">Статті</h2>
+            </div>
+            <div class="articles__slider slider">
+              <div class="slider__scroll-wrapper">
+                <div
+                  class="slider__scroll-zone slider__scroll-zone--left"
+                ></div>
+                <div
+                  class="slider__scroll-zone slider__scroll-zone--right"
+                ></div>
+              </div>
+              <div class="slider__wrapper">
+                <div class="slider__slide">
+                  <a href="#" class="article" target="_blank">
+                    <div class="article__image">
+                      <img
+                        src="./assets/img/articles/1.webp"
+                        alt="article"
+                        class="article__img"
+                        width="350"
+                        height="250"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="article__bottom">
+                      <h3 class="article__title">Статті Статті Статті</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="slider__slide">
+                  <a href="#" class="article" target="_blank">
+                    <div class="article__image">
+                      <img
+                        src="./assets/img/articles/2.webp"
+                        alt="article"
+                        class="article__img"
+                        width="350"
+                        height="250"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="article__bottom">
+                      <h3 class="article__title">Статті Статті Статті</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="slider__slide">
+                  <a href="#" class="article" target="_blank">
+                    <div class="article__image">
+                      <img
+                        src="./assets/img/articles/3.webp"
+                        alt="article"
+                        class="article__img"
+                        width="350"
+                        height="250"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="article__bottom">
+                      <h3 class="article__title">Статті Статті Статті</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="slider__slide">
+                  <a href="#" class="article" target="_blank">
+                    <div class="article__image">
+                      <img
+                        src="./assets/img/articles/1.webp"
+                        alt="article"
+                        class="article__img"
+                        width="350"
+                        height="250"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="article__bottom">
+                      <h3 class="article__title">Статті Статті Статті</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="slider__slide">
+                  <a href="#" class="article" target="_blank">
+                    <div class="article__image">
+                      <img
+                        src="./assets/img/articles/2.webp"
+                        alt="article"
+                        class="article__img"
+                        width="350"
+                        height="250"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="article__bottom">
+                      <h3 class="article__title">Статті Статті Статті</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="slider__slide">
+                  <a href="#" class="article" target="_blank">
+                    <div class="article__image">
+                      <img
+                        src="./assets/img/articles/3.webp"
+                        alt="article"
+                        class="article__img"
+                        width="350"
+                        height="250"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="article__bottom">
+                      <h3 class="article__title">Статті Статті Статті</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="slider__slide">
+                  <a href="#" class="article" target="_blank">
+                    <div class="article__image">
+                      <img
+                        src="./assets/img/articles/4.webp"
+                        alt="article"
+                        class="article__img"
+                        width="350"
+                        height="250"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="article__bottom">
+                      <h3 class="article__title">Статті Статті Статті</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="slider__slide">
+                  <a href="#" class="article" target="_blank">
+                    <div class="article__image">
+                      <img
+                        src="./assets/img/articles/5.webp"
+                        alt="article"
+                        class="article__img"
+                        width="350"
+                        height="250"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="article__bottom">
+                      <h3 class="article__title">Статті Статті Статті</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="slider__slide">
+                  <a href="#" class="article" target="_blank">
+                    <div class="article__image">
+                      <img
+                        src="./assets/img/articles/6.webp"
+                        alt="article"
+                        class="article__img"
+                        width="350"
+                        height="250"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="article__bottom">
+                      <h3 class="article__title">Статті Статті Статті</h3>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="best-products__slider slider">
-            <div class="slider__scroll-wrapper">
-              <div class="slider__scroll-zone slider__scroll-zone--left"></div>
-              <div class="slider__scroll-zone slider__scroll-zone--right"></div>
-            </div>
-            <div class="slider__wrapper">
-              <div class="slider__slide slider__slide--1">
-                <img
-                  src="assets/img/slider/1.webp"
-                  alt="slide"
-                  width="400"
-                  height="534"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--2">
-                <img
-                  src="assets/img/slider/2.webp"
-                  alt="slide"
-                  width="220"
-                  height="220"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--3">
-                <img
-                  src="assets/img/slider/3.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--4">
-                <img
-                  src="assets/img/slider/4.webp"
-                  alt="slide"
-                  width="400"
-                  height="534"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--5">
-                <img
-                  src="assets/img/slider/5.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--6">
-                <img
-                  src="assets/img/slider/6.webp"
-                  alt="slide"
-                  width="220"
-                  height="220"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--7">
-                <img
-                  src="assets/img/slider/7.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--8">
-                <img
-                  src="assets/img/slider/8.webp"
-                  alt="slide"
-                  width="400"
-                  height="534"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--9">
-                <img
-                  src="assets/img/slider/9.webp"
-                  alt="slide"
-                  width="220"
-                  height="220"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--10">
-                <img
-                  src="assets/img/slider/10.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--11">
-                <img
-                  src="assets/img/slider/11.webp"
-                  alt="slide"
-                  width="280"
-                  height="374"
-                  loading="lazy"
-                />
-              </div>
-              <div class="slider__slide slider__slide--12">
-                <img
-                  src="assets/img/slider/12.webp"
-                  alt="slide"
-                  width="400"
-                  height="534"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </section> -->
+        </section>
       </main>
       <footer class="footer">
         <div class="footer__container">
@@ -698,6 +747,84 @@
           </div>
         </div>
       </footer>
+
+      <div data-popup="popup-cart" aria-hidden="true" class="popup">
+        <div data-popup-wrapper class="popup__wrapper">
+          <div data-popup-body class="popup__body">
+            <button
+              data-popup-close
+              type="button"
+              class="popup__close"
+              aria-label="Close popup"
+              title="Close popup"
+            >
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M30 10L10 30"
+                  stroke="#181C29"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M10 10L30 30"
+                  stroke="#181C29"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div data-popup-content class="popup__content cart js-cart">
+              <!-- Контент -->
+              <div class="cart__wrapper">
+                <div class="cart__empty-container js-cart-empty-container">
+                  <div class="cart__empty">Your cart is empty</div>
+                  <div class="cart__icon icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="48"
+                      height="48"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M24 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="cart__order-container js-cart-order-container">
+                  <div class="cart__order">Your order</div>
+                  <form action="#" class="cart__form">
+                    <ul class="cart__list js-cart-list"></ul>
+                    <div class="cart__total-container">
+                      <h3 class="cart__title">Total</h3>
+                      <div>
+                        <span class="cart__total-price js-cart-total-price"
+                          >1400</span
+                        >
+                        <span class="cart__currency">грн</span>
+                      </div>
+                    </div>
+                    <div class="cart__btns">
+                      <button type="submit" class="button cart__btn-order">
+                        Place an order
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- 111 -->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -4,10 +4,6 @@ export default class ProductCard {
     buyBtn: '[data-card-buy-btn]',
   };
 
-  stateClasses = {
-    favorite: 'product--favorite',
-  };
-
   constructor(product) {
     this.product = product;
     this.element = null;
@@ -29,13 +25,14 @@ export default class ProductCard {
     const { id, image, model, description, article, price } = this.product;
 
     return `
-      <article data-card-link class="product js-link-card" id="${id}">
+      <article data-card-link class="product" id="${id}">
         <a href="#" class="product__image ibg">
           <img
             src="${image}"
             alt="${model}"
-            width="340"
-            height="250"
+            data-card-image
+            width="285"
+            height="215"
             loading="lazy"
           />
         </a>
@@ -63,7 +60,7 @@ export default class ProductCard {
             </button>
           </div>
 
-          <h3 data-card-title class="product__title js-title-card">
+          <h3 data-card-title class="product__title">
             <a href="#">${model}</a>
           </h3>
 
@@ -74,8 +71,8 @@ export default class ProductCard {
           <div data-card-article class="product__article">Article: ${article}</div>
 
           <div class="product__price product-price">
-            <div data-card-price class="product__price-current js-price-card">
-              ${price} $
+            <div data-card-price class="product__price-current">
+              ${price} грн
             </div>
           </div>
 
@@ -99,14 +96,4 @@ export default class ProductCard {
       .querySelector(this.selectors.buyBtn)
       .addEventListener('click', this.onBuyClick);
   }
-
-  onFavoriteClick = (e) => {
-    e.preventDefault();
-    this.element.classList.toggle(this.stateClasses.favorite);
-  };
-
-  // onBuyClick = (e) => {
-  //   e.preventDefault();
-  //   console.log('Add to cart:', this.product.id);
-  // };
 }

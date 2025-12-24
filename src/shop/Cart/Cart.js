@@ -33,18 +33,10 @@ export default class Cart {
 
     this.formatter = new Intl.NumberFormat('ru');
 
-    this.sounds = {
-      add: new Audio('assets/audio/add1.mp3'),
-      stepper: new Audio('assets/audio/counter1.mp3'),
-      remove: new Audio('assets/audio/trash1.mp3'),
-    };
-
     this.bindEvents();
     this.toggleCartStatus();
     this.calcTotalCartValue();
   }
-
-  /* ================= EVENTS ================= */
 
   bindEvents() {
     this.productsList.addEventListener('click', this.onAddProduct);
@@ -69,7 +61,6 @@ export default class Cart {
 
     this.toggleCartStatus();
     this.calcTotalCartValue();
-    this.playSound(this.sounds.add);
   };
 
   onCartClick = (e) => {
@@ -86,16 +77,14 @@ export default class Cart {
     }
   };
 
-  /* ================= LOGIC ================= */
-
   getProductInfo(product) {
     return {
-      id: product.querySelector('.js-link-card').id,
-      model: product.querySelector('.js-title-card').textContent,
+      id: product.querySelector('[data-card-link]').id,
+      model: product.querySelector('[data-card-title]').textContent,
       price: product
-        .querySelector('.js-price-card')
+        .querySelector('[data-card-price]')
         .textContent.replace(/\s/g, ''),
-      image: product.querySelector('.js-image-card')?.src,
+      image: product.querySelector('[data-card-image]')?.src,
     };
   }
 
@@ -129,17 +118,13 @@ export default class Cart {
 
     count.textContent = value;
     this.calcTotalCartValue();
-    this.playSound(this.sounds.stepper);
   }
 
   removeProduct(e) {
     e.target.closest(this.selectors.cartItem).remove();
     this.toggleCartStatus();
     this.calcTotalCartValue();
-    this.playSound(this.sounds.remove);
   }
-
-  /* ================= RENDER ================= */
 
   renderProduct(product) {
     const li = document.createElement('li');
@@ -169,7 +154,7 @@ export default class Cart {
               data-price="${product.price}">
               ${product.price}
             </span>
-            <span class="item-cart__currency">$</span>
+            <span class="item-cart__currency">грн</span>
           </div>
         </div>
       </div>
@@ -177,8 +162,6 @@ export default class Cart {
 
     this.cartList.append(li);
   }
-
-  /* ================= UI ================= */
 
   toggleCartStatus() {
     const hasItems = this.cart.querySelector(this.selectors.cartItem);
@@ -201,10 +184,5 @@ export default class Cart {
     });
 
     this.totalPrice.textContent = this.formatter.format(total);
-  }
-
-  playSound(sound) {
-    sound.currentTime = 0;
-    sound.play().catch(() => {});
   }
 }

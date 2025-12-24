@@ -19,6 +19,8 @@
 @use '../shop/stapper/stepper';
 @use '../shop/Cart/cart';
 @use '../shop/Cart/cart-item';
+
+// @use '../shop/favorite/favorite';
 @use 'blocks/page';
 @use 'blocks/common';
 @use 'blocks/header';
