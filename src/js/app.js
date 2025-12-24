@@ -6,6 +6,7 @@ import Header from './../components/header/Header';
 import ScrollUpButton from '../components/scrollUpButton/ScrollUpButton';
 import scroller from './../components/scroller/scroller';
 import sliderHover from './../components/sliders/slider-hover/SliderHover';
+import Popup from './../components/popup/popup';
 import shop from '../shop/shop';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -13,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
   headerFon();
   new Header();
   new ScrollUpButton();
+  new Popup();
   scroller();
   sliderHover();
   shop();

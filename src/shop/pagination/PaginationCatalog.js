@@ -12,7 +12,7 @@ export default class PaginationCatalog {
 
   state = {
     currentPage: 1,
-    productsPerPage: 10,
+    productsPerPage: 12,
   };
 
   constructor(products = []) {

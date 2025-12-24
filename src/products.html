@@ -73,9 +73,9 @@
                   height="44"
                 />
               </a>
-              <a
-                target="_blank"
-                href="/"
+              <button
+                type="button"
+                data-popup-link="popup-cart"
                 class="header__action header__card shopping-cart js-cart-icon js-cart-btn"
                 aria-label="Open card"
                 title="Open card"
@@ -87,7 +87,7 @@
                   width="44"
                   height="44"
                 />
-              </a>
+              </button>
               <a
                 target="_blank"
                 href="/"
@@ -391,8 +391,84 @@
           </div>
         </div>
       </footer>
+
+      <div data-popup="popup-cart" aria-hidden="true" class="popup">
+        <div data-popup-wrapper class="popup__wrapper">
+          <div data-popup-body class="popup__body">
+            <button
+              data-popup-close
+              type="button"
+              class="popup__close"
+              aria-label="Close popup"
+              title="Close popup"
+            >
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M30 10L10 30"
+                  stroke="#181C29"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M10 10L30 30"
+                  stroke="#181C29"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div data-popup-content class="popup__content cart js-cart">
+              <!-- Контент -->
+              <div class="cart__wrapper">
+                <div class="cart__empty-container js-cart-empty-container">
+                  <div class="cart__empty">Your cart is empty</div>
+                  <div class="cart__icon icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="48"
+                      height="48"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M24 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="cart__order-container js-cart-order-container">
+                  <div class="cart__order">Your order</div>
+                  <form action="#" class="cart__form">
+                    <ul class="cart__list js-cart-list"></ul>
+                    <div class="cart__total-container">
+                      <h3 class="cart__title">Total</h3>
+                      <div>
+                        <span class="cart__total-price js-cart-total-price"
+                          >1400</span
+                        >
+                        <span class="cart__currency">$</span>
+                      </div>
+                    </div>
+                    <div class="cart__btns">
+                      <button type="submit" class="button cart__btn-order">
+                        Place an order
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- 111 -->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
-
-

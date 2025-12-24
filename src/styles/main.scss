@@ -12,10 +12,13 @@
 @use '../components/scrollDownButton/scrollDownButton';
 @use '../components/scroller/scroller';
 @use '../components/sliders/slider-hover/slider-hover';
+@use '../components/popup/popup';
 @use '../shop/product-card/card';
 @use '../shop/products/products';
 @use '../shop/pagination/pagination';
-@use '../shop/badge';
+@use '../shop/stapper/stepper';
+@use '../shop/Cart/cart';
+@use '../shop/Cart/cart-item';
 @use 'blocks/page';
 @use 'blocks/common';
 @use 'blocks/header';
