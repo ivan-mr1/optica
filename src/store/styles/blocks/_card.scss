@@ -62,13 +62,13 @@
 
     &_share {
       &::before {
-        background: url('../assets/img/root/share.svg') center center no-repeat;
+        background: url('../assets/img/svg/share.svg') center center no-repeat;
       }
     }
 
     &_favorite {
       &::before {
-        background: url('../assets/img/root/favorite_white.svg') center center
+        background: url('../assets/img/svg/favorite-card.svg') center center
           no-repeat;
       }
     }

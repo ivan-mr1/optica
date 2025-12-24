@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header" data-header data-right-padding>
+      <header class="header dark" data-header data-right-padding>
         <div class="header__container">
           <a href="./index.html" class="logo header__logo">Optica</a>
           <div class="header__overlay">
@@ -131,7 +131,7 @@
                 class="header-block__title products__title"
                 id="products-title"
               >
-                Catalog
+                Каталог
               </h1>
             </div>
             <ul class="products__list" data-products-catalog></ul>
@@ -139,10 +139,11 @@
         </section>
 
         <div class="pagination__container">
-          <div class="pagination js-pagination hidden">
+          <div data-pagination class="pagination hidden">
             <button
+              data-pagination-btn-prev
               type="button"
-              class="pagination-btn pagination-btn-prev js-pagination-btn-prev"
+              class="pagination-btn pagination-btn-prev"
             >
               <svg
                 style="transform: rotate(180deg) scale(0.55)"
@@ -157,10 +158,11 @@
                 />
               </svg>
             </button>
-            <ul class="pagination__list js-pagination-list"></ul>
+            <ul data-pagination-list class="pagination__list"></ul>
             <button
+              data-pagination-btn-next
               type="button"
-              class="pagination-btn pagination-btn-next js-pagination-btn-next"
+              class="pagination-btn pagination-btn-next"
             >
               <svg
                 style="transform: rotate(0deg) scale(0.55)"

@@ -1,1 +1,14 @@
 @use '../helpers' as *;
+
+.header-block {
+  &__title {
+    font-size: rem(24);
+    font-weight: 600;
+  }
+}
+
+.partners {
+  &__header-block {
+    margin-bottom: 40px;
+  }
+}
