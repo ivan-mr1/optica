@@ -1,6 +1,6 @@
 @use '../helpers' as *;
 
-[class*='page__']:not(.hero) {
+[class*='page__']:not(.hero, .products) {
   @include adaptive-clamp('padding-top', 40, 20);
   @include adaptive-clamp('padding-bottom', 40, 20);
 }

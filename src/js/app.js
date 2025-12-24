@@ -5,7 +5,8 @@ import headerFon from '../components/header/headerFon';
 import Header from './../components/header/Header';
 import ScrollUpButton from '../components/scrollUpButton/ScrollUpButton';
 import scroller from './../components/scroller/scroller';
-import shop from '../store/shop/shop';
+import sliderHover from './../components/sliders/slider-hover/SliderHover';
+import shop from '../shop/shop';
 
 window.addEventListener('DOMContentLoaded', () => {
   pageNavigation();
@@ -13,5 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
   new Header();
   new ScrollUpButton();
   scroller();
+  sliderHover();
   shop();
 });
