@@ -5,14 +5,18 @@
   @include adaptive-clamp('padding-bottom', 60, 20);
 
   &__header {
-    margin-bottom: rem(40);
-    font-size: 22px;
-    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: rem(40);
+    }
   }
 
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
   }
 }

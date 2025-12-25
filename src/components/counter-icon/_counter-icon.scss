@@ -1,0 +1,40 @@
+@use '../../styles/helpers/' as *;
+
+.counter-icon {
+  &__inner {
+    position: relative;
+  }
+
+  &__count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 25px;
+    padding: 3px;
+    text-align: center;
+    color: white;
+    background-color: #ff3b30;
+    border-radius: 50%;
+  }
+}
+
+/* 
+<button
+  type="button"
+  data-popup-link="popup-cart"
+  class="header__action header__card card"
+  aria-label="Open card"
+  title="Open card"
+>
+  <div class="card__inner">
+    <img
+      src="assets/img/svg/card.svg"
+      alt="card"
+      class="header__img"
+      width="40"
+      height="40"
+    />
+    <span class="card__count">0</span>
+  </div>
+</button>
+*/

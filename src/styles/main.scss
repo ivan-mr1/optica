@@ -11,7 +11,7 @@
 @use '../components/scrollUpButton/scroll-up-button';
 @use '../components/scrollDownButton/scrollDownButton';
 @use '../components/scroller/scroller';
-@use '../components/sliders/slider-hover/slider-hover';
+@use '../components/counter-icon/counter-icon';
 @use '../components/popup/popup';
 @use '../shop/product-card/card';
 @use '../shop/products/products';
@@ -19,13 +19,10 @@
 @use '../shop/stapper/stepper';
 @use '../shop/Cart/cart';
 @use '../shop/Cart/cart-item';
-
-// @use '../shop/favorite/favorite';
 @use 'blocks/page';
 @use 'blocks/common';
 @use 'blocks/header';
 @use 'blocks/footer';
 @use 'blocks/hero';
 @use 'blocks/about';
-@use 'blocks/articles';
 @use 'blocks/partners';

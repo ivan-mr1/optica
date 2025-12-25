@@ -1,4 +1,4 @@
-# My Portfolio
+# Optica shop
 
 - Deploy: [link](https://ivan-mr1.github.io/optica/dist/)
 
