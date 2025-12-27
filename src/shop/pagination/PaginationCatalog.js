@@ -78,7 +78,7 @@ export default class PaginationCatalog {
 
     items.forEach((item) => {
       item.classList.toggle(
-        'active',
+        'is-active',
         Number(item.dataset.page) === this.state.currentPage,
       );
     });
