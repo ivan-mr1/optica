@@ -1,6 +1,12 @@
 @use '../helpers' as *;
 
 .about {
+  @include adaptive-clamp('padding-bottom', 40, 20);
+
+  &__container {
+    @include adaptive-clamp('padding-top', 40, 20);
+  }
+
   &__wrapper {
     display: flex;
 

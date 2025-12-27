@@ -1,0 +1,47 @@
+@use '../../styles/helpers/' as *;
+
+.favorite-product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  padding-right: 13px;
+
+  @include hover {
+    background: rgba(93, 113, 221, 0.1);
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+  }
+
+  &__title {
+    max-width: 300px;
+    font-size: 14px;
+    color: var(--color-dark);
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__price {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  &__delete {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,60 @@
+@use './../../styles/helpers/' as *;
+
+.cart {
+  &__empty-container,
+  &__order-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &__empty,
+  &__order {
+    font-weight: 700;
+
+    @include adaptive-clamp('font-size', 28, 20);
+    @include adaptive-clamp('margin-bottom', 30, 20);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__total-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__total-price {
+    font-size: 20px;
+    font-weight: 500px;
+  }
+
+  &__currency {
+    font-size: 20px;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn-order {
+    color: var(--color-orange);
+    border: 1px solid var(--color-orange);
+  }
+}
