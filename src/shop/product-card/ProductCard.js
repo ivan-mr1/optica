@@ -19,8 +19,14 @@ export default class ProductCard {
     const { id, image, model, description, article, price } = this.product;
 
     return `
-      <article data-card-link class="product" id="${id}">
-        <a href="#" class="product__image ibg">
+      <article data-card-link 
+               class="product" 
+               id="${id}"
+               data-product-id="${id}">
+               
+        <a href="/card.html?id=${id}" 
+           target="_blank" 
+           class="product__image ibg">
           <img
             src="${image}"
             alt="${model}"
@@ -54,9 +60,10 @@ export default class ProductCard {
             </button>
           </div>
 
-          <h3 data-card-title class="product__title">
-            <a href="#">${model}</a>
-          </h3>
+          <a href="/card.html?id=${id}" 
+             target="_blank" 
+             data-card-title 
+             class="product__title">${model}</a>
 
           <div class="product__descr">
             <p>${description}</p>
