@@ -15,6 +15,11 @@
     color: white;
     background-color: #ff3b30;
     border-radius: 50%;
+    transition: opacity 0.2s ease;
+  }
+
+  &__count.is-hidden {
+    opacity: 0;
   }
 }
 

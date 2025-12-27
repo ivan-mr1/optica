@@ -84,21 +84,21 @@ class Header {
     document.addEventListener('keydown', this.onEscapePress);
   }
 
-  destroy() {
-    if (!this.burgerButtonElement || !this.menuElement) {
-      return;
-    }
+  // destroy() {
+  //   if (!this.burgerButtonElement || !this.menuElement) {
+  //     return;
+  //   }
 
-    this.burgerButtonElement.removeEventListener('click', this.toggleMenu);
+  //   this.burgerButtonElement.removeEventListener('click', this.toggleMenu);
 
-    this.menuElement.removeEventListener('click', this.onMenuClick);
+  //   this.menuElement.removeEventListener('click', this.onMenuClick);
 
-    if (this.overlayElement) {
-      this.overlayElement.removeEventListener('click', this.onOverlayClick);
-    }
+  //   if (this.overlayElement) {
+  //     this.overlayElement.removeEventListener('click', this.onOverlayClick);
+  //   }
 
-    document.removeEventListener('keydown', this.onEscapePress);
-  }
+  //   document.removeEventListener('keydown', this.onEscapePress);
+  // }
 }
 
 export default Header;

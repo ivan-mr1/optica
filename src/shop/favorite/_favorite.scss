@@ -1,5 +1,62 @@
 @use '../../styles/helpers/' as *;
 
-.product__favorite {
-  opacity: 0.4;
+.favorite {
+  position: relative;
+
+  &__content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: fluid(450, 300);
+    margin-top: 30px;
+    background-color: var(--color-white);
+    box-shadow: 0 4px 4px rgba(135, 135, 135, 0.25);
+    visibility: hidden;
+    opacity: 0;
+    cursor: default;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    will-change: opacity;
+
+    @media (max-width: em(767.98)) {
+      right: 50%;
+      transform: translateX(50%);
+    }
+  }
+
+  &__list {
+    overflow-y: auto;
+    max-height: 330px;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid #eaeaea;
+  }
+
+  &__fullprice-inner {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+  }
+
+  &__fullprice {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__btn {
+    color: var(--color-orange);
+    border: 1px solid var(--color-orange);
+  }
+}
+
+.favorite.is-active .favorite__content {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }

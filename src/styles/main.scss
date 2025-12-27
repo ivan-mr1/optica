@@ -26,3 +26,5 @@
 @use 'blocks/hero';
 @use 'blocks/about';
 @use 'blocks/partners';
+@use '../shop/favorite/favorite';
+@use '../shop/favorite/favorite-product';

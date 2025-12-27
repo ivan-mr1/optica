@@ -11,7 +11,7 @@
   }
 
   &__title {
-    font-size: 20px;
+    font-size: fluid(20, 18);
     font-weight: 600;
   }
 
@@ -20,7 +20,7 @@
   }
 
   &__price {
-    font-size: 22px;
+    font-size: fluid(22, 18);
     font-weight: 600;
   }
 
