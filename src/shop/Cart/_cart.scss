@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 25px 10px;
 
     &.hidden {
       display: none;
@@ -14,7 +15,7 @@
 
   &__empty,
   &__order {
-    font-weight: 700;
+    font-weight: 600;
 
     @include adaptive-clamp('font-size', 28, 20);
     @include adaptive-clamp('margin-bottom', 30, 20);
@@ -40,7 +41,7 @@
 
   &__total-price {
     font-size: 20px;
-    font-weight: 500px;
+    font-weight: 600;
   }
 
   &__currency {

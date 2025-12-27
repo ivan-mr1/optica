@@ -10,13 +10,12 @@ export default class PaginationCatalog {
     pageItem: '.pagination__item',
   };
 
-  state = {
-    currentPage: 1,
-    productsPerPage: 12,
-  };
-
-  constructor(products = []) {
+  constructor(products = [], productsPerPage = 12) {
     this.products = products;
+    this.state = {
+      currentPage: 1,
+      productsPerPage,
+    };
 
     this.container = document.querySelector(this.selectors.productsContainer);
     this.pagination = document.querySelector(this.selectors.pagination);
@@ -28,33 +27,30 @@ export default class PaginationCatalog {
       return;
     }
 
-    this.render();
-    this.bindEvents();
-  }
-
-  render() {
-    this.renderProducts();
     this.renderPagination();
+    this.renderProducts();
     this.updateActivePage();
+    this.bindEvents();
   }
 
   renderProducts() {
     const { currentPage, productsPerPage } = this.state;
-
     this.container.innerHTML = '';
 
     const start = (currentPage - 1) * productsPerPage;
     const end = start + productsPerPage;
 
+    const fragment = document.createDocumentFragment();
     this.products.slice(start, end).forEach((product) => {
       const card = new ProductCard(product);
-      this.container.append(card.element);
+      fragment.appendChild(card.element);
     });
+
+    this.container.appendChild(fragment);
   }
 
   renderPagination() {
     const pagesCount = this.getPagesCount();
-
     this.paginationList.innerHTML = '';
 
     for (let i = 1; i <= pagesCount; i++) {
@@ -62,20 +58,21 @@ export default class PaginationCatalog {
       li.className = 'pagination__item';
       li.dataset.page = i;
       li.textContent = i;
-
-      this.paginationList.append(li);
+      this.paginationList.appendChild(li);
     }
 
     this.pagination.classList.remove('hidden');
   }
 
   getPagesCount() {
-    return Math.ceil(this.products.length / this.state.productsPerPage);
+    return Math.max(
+      1,
+      Math.ceil(this.products.length / this.state.productsPerPage),
+    );
   }
 
   updateActivePage() {
     const items = this.paginationList.querySelectorAll(this.selectors.pageItem);
-
     items.forEach((item) => {
       item.classList.toggle(
         'is-active',
@@ -97,30 +94,38 @@ export default class PaginationCatalog {
     }
 
     this.state.currentPage = Number(item.dataset.page);
-    this.render();
+    this.renderProducts();
+    this.updateActivePage();
   };
 
   onNextClick = () => {
     const pagesCount = this.getPagesCount();
-
     this.state.currentPage =
       this.state.currentPage >= pagesCount ? 1 : this.state.currentPage + 1;
-
-    this.render();
+    this.renderProducts();
+    this.updateActivePage();
   };
 
   onPrevClick = () => {
     const pagesCount = this.getPagesCount();
-
     this.state.currentPage =
       this.state.currentPage <= 1 ? pagesCount : this.state.currentPage - 1;
-
-    this.render();
+    this.renderProducts();
+    this.updateActivePage();
   };
 
   updateProducts(products) {
     this.products = products;
     this.state.currentPage = 1;
-    this.render();
+    this.renderProducts();
+    this.updateActivePage();
+  }
+
+  setProductsPerPage(count) {
+    this.state.productsPerPage = count;
+    this.state.currentPage = 1;
+    this.renderPagination();
+    this.renderProducts();
+    this.updateActivePage();
   }
 }

@@ -1,15 +1,9 @@
 export default class ProductCard {
-  selectors = {
-    favoriteBtn: '[data-card-favorite]',
-    buyBtn: '[data-card-buy-btn]',
-  };
-
   constructor(product) {
     this.product = product;
     this.element = null;
 
     this.render();
-    this.bindEvents();
   }
 
   render() {
@@ -80,20 +74,10 @@ export default class ProductCard {
             data-card-buy-btn
             class="button button--card product__btn js-buy-button"
           >
-            Add to cart
+            До кошика
           </button>
         </div>
       </article>
     `;
-  }
-
-  bindEvents() {
-    this.element
-      .querySelector(this.selectors.favoriteBtn)
-      .addEventListener('click', this.onFavoriteClick);
-
-    this.element
-      .querySelector(this.selectors.buyBtn)
-      .addEventListener('click', this.onBuyClick);
   }
 }
