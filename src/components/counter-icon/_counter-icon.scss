@@ -3,6 +3,7 @@
 .counter-icon {
   &__inner {
     position: relative;
+    display: block;
   }
 
   &__count {
