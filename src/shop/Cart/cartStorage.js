@@ -1,18 +1,35 @@
 const STORAGE_KEY = 'cart';
 
-export const saveCart = (items) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+const safeParse = (value) => {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return null;
+  }
+};
+
+export const saveCart = (items = []) => {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  } catch (error) {
+    console.error('Failed to save cart to localStorage', error);
+  }
 };
 
 export const loadCart = () => {
   try {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const data = safeParse(localStorage.getItem(STORAGE_KEY));
     return Array.isArray(data) ? data : [];
-  } catch {
+  } catch (error) {
+    console.error('Failed to load cart from localStorage', error);
     return [];
   }
 };
 
 export const clearCart = () => {
-  localStorage.removeItem(STORAGE_KEY);
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {
+    console.error('Failed to clear cart in localStorage', error);
+  }
 };
