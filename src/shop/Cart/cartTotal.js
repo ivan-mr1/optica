@@ -1,17 +1,20 @@
-import { selectors, dom } from './cartDom.js';
+import { dom, selectors } from './cartDom.js';
 
 const formatter = new Intl.NumberFormat('ru');
 
 export const updateTotal = () => {
   let total = 0;
 
-  dom.cartList.querySelectorAll(selectors.cartItem).forEach((item) => {
-    const count = item.querySelector(selectors.currentItems);
-    const price = item.querySelector(selectors.cartPrice);
+  const items = dom.cartList.querySelectorAll(selectors.cartItem);
+  items.forEach((item) => {
+    const countEl = item.querySelector(selectors.currentItems);
+    const priceEl = item.querySelector(selectors.cartPrice);
 
-    const value = parseInt(count.textContent) * parseInt(price.dataset.price);
+    const count = parseInt(countEl.textContent, 10) || 1;
+    const price = parseInt(priceEl.dataset.price, 10) || 0;
 
-    price.textContent = formatter.format(value);
+    const value = count * price;
+    priceEl.textContent = formatter.format(value);
     total += value;
   });
 

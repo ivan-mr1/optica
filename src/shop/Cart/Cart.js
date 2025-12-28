@@ -1,5 +1,6 @@
 import { dom, selectors, stateClasses } from './cartDom.js';
 import { saveCart, loadCart } from './cartStorage.js';
+import { collectCartState } from './cartState.js';
 import { addProduct, removeProduct, restoreProducts } from './cartProducts.js';
 import { handleCounterClick } from './cartCounter.js';
 import { updateTotal } from './cartTotal.js';
@@ -14,7 +15,7 @@ const toggleCartStatus = () => {
 const onChange = () => {
   toggleCartStatus();
   updateTotal();
-  saveCart(dom.cartList);
+  saveCart(collectCartState());
 };
 
 export const initCart = () => {

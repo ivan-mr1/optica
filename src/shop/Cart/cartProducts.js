@@ -1,11 +1,12 @@
-import { selectors, stateClasses, dom } from './cartDom.js';
+import { dom, selectors, stateClasses } from './cartDom.js';
 
 export const getProductInfo = (product) => ({
   id: product.querySelector('[data-card-link]').id,
   model: product.querySelector('[data-card-title]').textContent,
-  price: product
-    .querySelector('[data-card-price]')
-    .textContent.replace(/\s/g, ''),
+  price: parseInt(
+    product.querySelector('[data-card-price]').textContent.replace(/\s/g, ''),
+    10,
+  ),
   image: product.querySelector('[data-card-image]')?.src,
   count: 1,
 });
@@ -29,7 +30,7 @@ export const renderProduct = (product) => {
             –
           </button>
           <div class="stapper__number js-current-items">
-            ${product.count ?? 1}
+            ${product.count}
           </div>
           <button type="button" class="stapper__button js-plus">+</button>
         </div>
@@ -46,7 +47,7 @@ export const renderProduct = (product) => {
     </div>
   `;
 
-  dom.cartList.append(li);
+  dom.cartList.appendChild(li);
 };
 
 export const addProduct = (e, onChange) => {
@@ -57,13 +58,12 @@ export const addProduct = (e, onChange) => {
   const product = e.target.closest('.js-product');
   const info = getProductInfo(product);
 
-  const productInCart = dom.cartList.querySelector(`#${info.id}`);
+  const inCart = dom.cartList.querySelector(`#${info.id}`);
+  if (inCart) {
+    const countEl = inCart.querySelector(selectors.currentItems);
+    const minusBtn = inCart.querySelector(selectors.minusButton);
 
-  if (productInCart) {
-    const count = productInCart.querySelector(selectors.currentItems);
-    const minusBtn = productInCart.querySelector(selectors.minusButton);
-
-    count.textContent = parseInt(count.textContent) + 1;
+    countEl.textContent = parseInt(countEl.textContent, 10) + 1;
     minusBtn.classList.remove(stateClasses.disabled);
   } else {
     renderProduct(info);
@@ -76,26 +76,16 @@ export const removeProduct = (e, onChange) => {
   if (!e.target.classList.contains(selectors.removeButton.slice(1))) {
     return;
   }
-
-  e.target.closest(selectors.cartItem).remove();
+  const item = e.target.closest(selectors.cartItem);
+  if (item) {
+    item.remove();
+  }
   onChange();
 };
 
 export const restoreProducts = (items) => {
-  items.forEach((item) => {
-    renderProduct(item);
-
-    const cartItem = dom.cartList
-      .querySelector(`#${item.id}`)
-      .closest(selectors.cartItem);
-
-    const count = cartItem.querySelector(selectors.currentItems);
-    const minusBtn = cartItem.querySelector(selectors.minusButton);
-
-    count.textContent = item.count;
-
-    if (item.count > 1) {
-      minusBtn.classList.remove(stateClasses.disabled);
-    }
-  });
+  if (!Array.isArray(items)) {
+    return;
+  }
+  items.forEach(renderProduct);
 };
