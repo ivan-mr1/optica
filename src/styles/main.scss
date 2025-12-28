@@ -17,8 +17,8 @@
 @use '../shop/products/products';
 @use '../shop/pagination/pagination';
 @use '../shop/stapper/stepper';
-@use '../shop/Cart/cart';
-@use '../shop/Cart/cart-item';
+@use '../shop/cart/cart';
+@use '../shop/cart/cart-item';
 @use 'blocks/page';
 @use 'blocks/common';
 @use 'blocks/header';

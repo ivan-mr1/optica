@@ -88,3 +88,4 @@ export default class ProductCard {
     `;
   }
 }
+// image 474/355
