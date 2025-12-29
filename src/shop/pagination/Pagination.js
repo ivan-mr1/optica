@@ -7,6 +7,11 @@ export default class Pagination {
     pageItem: '.pagination__item',
   };
 
+  stateClasses = {
+    active: 'is-active',
+    hidden: 'hidden',
+  };
+
   state = {
     currentPage: 1,
     productsPerPage: 12,
@@ -57,7 +62,7 @@ export default class Pagination {
       this.paginationList.append(li);
     }
 
-    this.pagination?.classList.remove('hidden');
+    this.pagination?.classList.remove(this.stateClasses.hidden);
   }
 
   getPagesCount() {
@@ -68,7 +73,7 @@ export default class Pagination {
     const items = this.paginationList.querySelectorAll(this.selectors.pageItem);
     items.forEach((item) => {
       item.classList.toggle(
-        'is-active',
+        this.stateClasses.active,
         Number(item.dataset.page) === this.state.currentPage,
       );
     });
