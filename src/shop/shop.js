@@ -1,13 +1,15 @@
 import products from './products.json';
-import PaginationCatalog from './pagination/PaginationCatalog';
+import RenderProductList from './products/RenderProductList';
+import Pagination from './pagination/Pagination';
 import { initCart } from './cart/cart';
-import FavoriteDropdown from './favorite/FavoriteDropdown';
 import counter from '../components/counter-icon/counter';
 
 export default function shop() {
-  new PaginationCatalog(products);
+  const productList = new RenderProductList(
+    '[data-products-catalog]',
+    products,
+  );
+  new Pagination(productList, products);
   initCart();
-  new FavoriteDropdown();
   counter('[data-favorite-counter]', '[data-favorite-list]');
-  counter('[data-cart-counter]', '[data-cart-list]');
 }

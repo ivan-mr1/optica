@@ -3,7 +3,6 @@ import { dom, selectors, stateClasses } from './cartDom.js';
 export const getProductInfo = (product) => ({
   id: product.querySelector('[data-card-link]').id,
   model: product.querySelector('[data-card-title]').textContent,
-  article: product.querySelector('[data-card-article]').textContent,
   price: parseInt(
     product.querySelector('[data-card-price]').textContent.replace(/\s/g, ''),
     10,
@@ -13,17 +12,15 @@ export const getProductInfo = (product) => ({
 });
 
 export const renderProduct = (product) => {
-  const { id, image, model, article, price } = product;
   const li = document.createElement('li');
   li.className = 'cart__item item-cart js-cart-item';
 
   li.innerHTML = `
-    <span class="close js-remove">x</span>
-    <div class="item-cart__wrapper" id="${id}">
-      <div class="item-cart__model">${model}</div>
-      <div data-card-article class="product__article">Article: ${article}</div>
+    <span class="close js-remove"></span>
+    <div class="item-cart__wrapper" id="${product.id}">
+      <div class="item-cart__model">${product.model}</div>
       <div class="item-cart__image">
-        <img src="${image}" alt="${model}">
+        <img src="${product.image}" alt="${product.model}">
       </div>
 
       <div class="item-cart__counter">
@@ -41,8 +38,8 @@ export const renderProduct = (product) => {
         <div class="item-cart__price">
           <span
             class="item-cart__price-counter js-cart-price"
-            data-price="${price}">
-            ${price}
+            data-price="${product.price}">
+            ${product.price}
           </span>
           <span class="item-cart__currency">грн</span>
         </div>

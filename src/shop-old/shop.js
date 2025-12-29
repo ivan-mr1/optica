@@ -9,4 +9,5 @@ export default function shop() {
   new Cart();
   new FavoriteDropdown();
   counter('[data-favorite-counter]', '[data-favorite-list]');
+  counter('[data-cart-counter]', '[data-cart-list]');
 }

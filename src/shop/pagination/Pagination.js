@@ -1,8 +1,5 @@
-import ProductCard from './../product-card/ProductCard';
-
-export default class PaginationCatalog {
+export default class Pagination {
   selectors = {
-    productsContainer: '[data-products-catalog]',
     pagination: '[data-pagination]',
     paginationList: '[data-pagination-list]',
     btnPrev: '[data-pagination-btn-prev]',
@@ -10,43 +7,41 @@ export default class PaginationCatalog {
     pageItem: '.pagination__item',
   };
 
-  constructor(products = [], productsPerPage = 12) {
-    this.products = products;
-    this.state = {
-      currentPage: 1,
-      productsPerPage,
-    };
+  state = {
+    currentPage: 1,
+    productsPerPage: 12,
+  };
 
-    this.container = document.querySelector(this.selectors.productsContainer);
+  constructor(renderListInstance, products = []) {
+    this.renderList = renderListInstance;
+    this.products = products;
+
     this.pagination = document.querySelector(this.selectors.pagination);
     this.paginationList = document.querySelector(this.selectors.paginationList);
     this.btnPrev = document.querySelector(this.selectors.btnPrev);
     this.btnNext = document.querySelector(this.selectors.btnNext);
 
-    if (!this.container || !this.paginationList) {
+    if (!this.paginationList) {
       return;
     }
 
-    this.renderPagination();
-    this.renderProducts();
-    this.updateActivePage();
+    this.render();
     this.bindEvents();
+  }
+
+  render() {
+    this.renderProducts();
+    this.renderPagination();
+    this.updateActivePage();
   }
 
   renderProducts() {
     const { currentPage, productsPerPage } = this.state;
-    this.container.innerHTML = '';
-
     const start = (currentPage - 1) * productsPerPage;
     const end = start + productsPerPage;
 
-    const fragment = document.createDocumentFragment();
-    this.products.slice(start, end).forEach((product) => {
-      const card = new ProductCard(product);
-      fragment.appendChild(card.element);
-    });
-
-    this.container.appendChild(fragment);
+    const productsSlice = this.products.slice(start, end);
+    this.renderList.render(productsSlice);
   }
 
   renderPagination() {
@@ -58,17 +53,15 @@ export default class PaginationCatalog {
       li.className = 'pagination__item';
       li.dataset.page = i;
       li.textContent = i;
-      this.paginationList.appendChild(li);
+
+      this.paginationList.append(li);
     }
 
-    this.pagination.classList.remove('hidden');
+    this.pagination?.classList.remove('hidden');
   }
 
   getPagesCount() {
-    return Math.max(
-      1,
-      Math.ceil(this.products.length / this.state.productsPerPage),
-    );
+    return Math.ceil(this.products.length / this.state.productsPerPage);
   }
 
   updateActivePage() {
@@ -94,38 +87,26 @@ export default class PaginationCatalog {
     }
 
     this.state.currentPage = Number(item.dataset.page);
-    this.renderProducts();
-    this.updateActivePage();
+    this.render();
   };
 
   onNextClick = () => {
     const pagesCount = this.getPagesCount();
     this.state.currentPage =
       this.state.currentPage >= pagesCount ? 1 : this.state.currentPage + 1;
-    this.renderProducts();
-    this.updateActivePage();
+    this.render();
   };
 
   onPrevClick = () => {
     const pagesCount = this.getPagesCount();
     this.state.currentPage =
       this.state.currentPage <= 1 ? pagesCount : this.state.currentPage - 1;
-    this.renderProducts();
-    this.updateActivePage();
+    this.render();
   };
 
   updateProducts(products) {
-    this.products = products;
+    this.products = products || [];
     this.state.currentPage = 1;
-    this.renderProducts();
-    this.updateActivePage();
-  }
-
-  setProductsPerPage(count) {
-    this.state.productsPerPage = count;
-    this.state.currentPage = 1;
-    this.renderPagination();
-    this.renderProducts();
-    this.updateActivePage();
+    this.render();
   }
 }
