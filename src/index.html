@@ -821,9 +821,9 @@
                 />
               </svg>
             </button>
-            <div data-popup-content class="popup__content cart js-cart">
+            <div data-cart class="cart">
               <div class="cart__wrapper">
-                <div class="cart__empty-container js-cart-empty-container">
+                <div data-cart-empty-container class="cart__empty-container">
                   <div class="cart__empty">Ваш кошик порожній</div>
                   <div class="cart__icon icon">
                     <svg
@@ -838,15 +838,18 @@
                     </svg>
                   </div>
                 </div>
-                <div class="cart__order-container js-cart-order-container">
+                <div
+                  class="cart__order-container hidden"
+                  data-cart-order-container
+                >
                   <div class="cart__order">Ваше замовлення</div>
                   <form action="#" class="cart__form">
-                    <ul data-cart-list class="cart__list js-cart-list"></ul>
+                    <ul data-cart-list class="cart__list"></ul>
                     <div class="cart__total-container">
                       <h3 class="cart__title">Всього</h3>
                       <div>
-                        <span class="cart__total-price js-cart-total-price"
-                          >1400</span
+                        <span data-cart-total-price class="cart__total-price"
+                          >0</span
                         >
                         <span class="cart__currency">грн</span>
                       </div>

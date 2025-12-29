@@ -10,6 +10,7 @@ export default class Pagination {
   stateClasses = {
     active: 'is-active',
     hidden: 'hidden',
+    disabled: 'disabled', // Добавили класс для неактивных стрелок
   };
 
   state = {
@@ -30,14 +31,17 @@ export default class Pagination {
       return;
     }
 
+    // Отрисовываем кнопки пагинации ОДИН РАЗ при инициализации
+    this.renderPagination();
     this.render();
     this.bindEvents();
   }
 
+  // Основной метод обновления вида
   render() {
     this.renderProducts();
-    this.renderPagination();
     this.updateActivePage();
+    this.updateArrowsState(); // Обновляем доступность стрелок
   }
 
   renderProducts() {
@@ -47,21 +51,32 @@ export default class Pagination {
 
     const productsSlice = this.products.slice(start, end);
     this.renderList.render(productsSlice);
+
+    // Улучшение: Скролл вверх к списку при смене страницы
+    if (this.state.currentPage > 1 || start > 0) {
+      this.renderList.container.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   renderPagination() {
     const pagesCount = this.getPagesCount();
+    if (pagesCount <= 1) {
+      this.pagination?.classList.add(this.stateClasses.hidden);
+      return;
+    }
+
     this.paginationList.innerHTML = '';
+    const fragment = document.createDocumentFragment();
 
     for (let i = 1; i <= pagesCount; i++) {
       const li = document.createElement('li');
       li.className = 'pagination__item';
       li.dataset.page = i;
       li.textContent = i;
-
-      this.paginationList.append(li);
+      fragment.append(li);
     }
 
+    this.paginationList.append(fragment);
     this.pagination?.classList.remove(this.stateClasses.hidden);
   }
 
@@ -79,6 +94,18 @@ export default class Pagination {
     });
   }
 
+  // Новое: управление состоянием стрелок Prev/Next
+  updateArrowsState() {
+    const pagesCount = this.getPagesCount();
+
+    if (this.btnPrev) {
+      this.btnPrev.disabled = this.state.currentPage === 1;
+    }
+    if (this.btnNext) {
+      this.btnNext.disabled = this.state.currentPage === pagesCount;
+    }
+  }
+
   bindEvents() {
     this.paginationList.addEventListener('click', this.onPageClick);
     this.btnNext?.addEventListener('click', this.onNextClick);
@@ -87,7 +114,7 @@ export default class Pagination {
 
   onPageClick = (event) => {
     const item = event.target.closest(this.selectors.pageItem);
-    if (!item) {
+    if (!item || item.classList.contains(this.stateClasses.active)) {
       return;
     }
 
@@ -96,22 +123,23 @@ export default class Pagination {
   };
 
   onNextClick = () => {
-    const pagesCount = this.getPagesCount();
-    this.state.currentPage =
-      this.state.currentPage >= pagesCount ? 1 : this.state.currentPage + 1;
-    this.render();
+    if (this.state.currentPage < this.getPagesCount()) {
+      this.state.currentPage++;
+      this.render();
+    }
   };
 
   onPrevClick = () => {
-    const pagesCount = this.getPagesCount();
-    this.state.currentPage =
-      this.state.currentPage <= 1 ? pagesCount : this.state.currentPage - 1;
-    this.render();
+    if (this.state.currentPage > 1) {
+      this.state.currentPage--;
+      this.render();
+    }
   };
 
   updateProducts(products) {
     this.products = products || [];
     this.state.currentPage = 1;
+    this.renderPagination(); // Перерисовываем кнопки, так как кол-во товаров могло измениться
     this.render();
   }
 }

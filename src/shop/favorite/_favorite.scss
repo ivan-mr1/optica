@@ -5,28 +5,58 @@
 
   &__content {
     position: absolute;
+    z-index: 100; // Гарантируем перекрытие контента
     top: 100%;
     right: 0;
     width: fluid(450, 300);
-    margin-top: 30px;
+    margin-top: 15px; // Уменьшил отступ для компактности
     background-color: var(--color-white);
-    box-shadow: 0 4px 4px rgba(135, 135, 135, 0.25);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); // Сделал тень мягче
+
+    // Анимация
     visibility: hidden;
     opacity: 0;
-    cursor: default;
-    transition: opacity 0.25s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease,
+      visibility 0.3s;
+    transform: translateY(10px); // Смещение вниз для эффекта выплывания
     pointer-events: none;
-    will-change: opacity;
+    will-change: opacity, transform;
 
     @media (max-width: em(767.98)) {
-      right: 50%;
-      transform: translateX(50%);
+      position: fixed; // На мобилках лучше фиксировать по центру экрана
+      top: 80px;
+      right: 10px;
+      left: 10px;
+      width: auto;
+      transform: translateY(10px);
+    }
+
+    // Состояние открытия
+    .favorite.is-active & {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
   }
 
   &__list {
     overflow-y: auto;
-    max-height: 330px;
+    max-height: 400px;
+    padding: 10px 0; // Добавил внутренние отступы для списка
+
+    // Стилизация скроллбара для красоты
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-orange);
+      border-radius: 10px;
+    }
   }
 
   &__bottom {
@@ -34,29 +64,34 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background: #f9f9f9; // Выделил футер цветом
     border-top: 1px solid #eaeaea;
+    border-radius: 0 0 8px 8px;
   }
 
   &__fullprice-inner {
     display: flex;
     flex-direction: column;
+    gap: 4px;
     font-size: 14px;
+    color: #888888;
   }
 
   &__fullprice {
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-dark);
   }
 
   &__btn {
-    color: var(--color-orange);
-    border: 1px solid var(--color-orange);
-  }
-}
+    padding: 10px 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 
-.favorite.is-active .favorite__content {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
+    @include hover {
+      color: var(--color-white);
+      background-color: var(--color-orange);
+    }
+  }
 }

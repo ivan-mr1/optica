@@ -1,4 +1,3 @@
-// only open or close favorite
 export default class FavoriteDropdown {
   selectors = {
     root: '[data-favorite]',
@@ -23,44 +22,54 @@ export default class FavoriteDropdown {
   }
 
   bindEvents() {
-    this.bindToggle();
-    this.bindEscClose();
-    this.bindClickOutside();
+    this.button.addEventListener('click', this.handleToggle);
+    document.addEventListener('keydown', this.handleEscClose);
+    document.addEventListener('click', this.handleClickOutside);
   }
 
-  bindToggle() {
-    this.button.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      this.toggle();
-    });
-  }
+  handleToggle = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.toggle();
+  };
 
-  bindEscClose() {
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        this.close();
-      }
-    });
-  }
+  handleEscClose = (e) => {
+    if (e.key === 'Escape' && this.isOpen) {
+      this.close();
+    }
+  };
 
-  bindClickOutside() {
-    document.addEventListener('click', (e) => {
-      if (!this.root.contains(e.target)) {
-        this.close();
-      }
-    });
+  handleClickOutside = (e) => {
+    if (!this.root.contains(e.target) && this.isOpen) {
+      this.close();
+    }
+  };
+
+  // Геттер для удобной проверки состояния
+  get isOpen() {
+    return this.root.classList.contains(this.stateClasses.active);
   }
 
   open() {
     this.root.classList.add(this.stateClasses.active);
+    // Генерируем событие, чтобы другие компоненты знали, что меню открыто
+    this.root.dispatchEvent(new CustomEvent('favorite:opened'));
   }
 
   close() {
+    if (!this.isOpen) {
+      return;
+    }
     this.root.classList.remove(this.stateClasses.active);
   }
 
   toggle() {
-    this.root.classList.toggle(this.stateClasses.active);
+    this.isOpen ? this.close() : this.open();
+  }
+
+  destroy() {
+    this.button.removeEventListener('click', this.handleToggle);
+    document.removeEventListener('keydown', this.handleEscClose);
+    document.removeEventListener('click', this.handleClickOutside);
   }
 }
