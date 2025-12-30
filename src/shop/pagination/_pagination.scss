@@ -27,20 +27,47 @@
     border: 1px solid #e0dede;
     border-radius: 3px;
     cursor: pointer;
+    transition: all 0.2s ease;
     user-select: none;
+
+    &:hover:not(.is-active, :disabled) {
+      background-color: #f0f0f0;
+      border-color: #cccccc;
+    }
   }
 
   &__item {
     width: 30px;
-  }
 
-  &__item.is-active {
-    color: #ffffff;
-    background-color: #000000;
-    border: 1px solid #000000;
+    &.is-active {
+      color: #ffffff;
+      background-color: #000000;
+      border: 1px solid #000000;
+      cursor: default;
+    }
   }
 
   &__btn {
     width: 35px;
+
+    &:disabled {
+      background-color: #f5f5f5;
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
   }
+
+  &__separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    color: #999999;
+    user-select: none;
+  }
+}
+
+.is-hidden {
+  display: none !important;
 }

@@ -31,7 +31,7 @@
     <div class="wrapper">
       <header class="header" data-header data-right-padding>
         <div class="header__container">
-          <a class="logo header__logo">Optica</a>
+          <a href="/" class="logo header__logo">Optica</a>
           <div class="header__overlay">
             <nav class="header__menu menu" data-header-menu>
               <ul class="menu__list">
@@ -61,6 +61,7 @@
                       href="https://t.me/Optikaonline"
                       class="soc1al__link"
                       target="_blank"
+                      rel="noopener"
                       aria-label="Telegram"
                       title="Telegram"
                     >
@@ -93,9 +94,10 @@
                   </li>
                   <li class="soc1al__item">
                     <a
-                      href="https://wa.me/380974501872?text=Доброго дня%2C%20хочу%20запитати"
+                      href="https://wa.me/380974501872"
                       class="soc1al__link"
                       target="_blank"
+                      rel="noopener"
                       aria-label="whatsapp"
                       title="whatsapp"
                     >
@@ -129,6 +131,7 @@
                       href="https://www.instagram.com/optica.ukraine.online/"
                       class="soc1al__link"
                       target="_blank"
+                      rel="noopener"
                       aria-label="Instagram"
                       title="Instagram"
                     >
@@ -188,9 +191,9 @@
                             gradientTransform="rotate(-55.376 27.916 .066)scale(25.5196)"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stop-color="#b13589" />
-                            <stop offset=".793" stop-color="#c62f94" />
-                            <stop offset="1" stop-color="#8a3ac8" />
+                            <stop offset="0%" stop-color="#b13589" />
+                            <stop offset="79.3%" stop-color="#c62f94" />
+                            <stop offset="100%" stop-color="#8a3ac8" />
                           </radialGradient>
                           <radialGradient
                             id="b1"
@@ -200,11 +203,11 @@
                             gradientTransform="rotate(-65.136 29.766 6.89)scale(22.5942)"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stop-color="#e0e8b7" />
-                            <stop offset=".445" stop-color="#fb8a2e" />
-                            <stop offset=".715" stop-color="#e2425c" />
+                            <stop offset="0%" stop-color="#e0e8b7" />
+                            <stop offset="44.5%" stop-color="#fb8a2e" />
+                            <stop offset="71.5%" stop-color="#e2425c" />
                             <stop
-                              offset="1"
+                              offset="100%"
                               stop-color="#e2425c"
                               stop-opacity="0"
                             />
@@ -217,10 +220,10 @@
                             gradientTransform="matrix(38.50003 -5.5 1.1764 8.23476 .5 3)"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop offset=".157" stop-color="#406adc" />
-                            <stop offset=".468" stop-color="#6a45be" />
+                            <stop offset="15.7%" stop-color="#406adc" />
+                            <stop offset="46.8%" stop-color="#6a45be" />
                             <stop
-                              offset="1"
+                              offset="100%"
                               stop-color="#6a45be"
                               stop-opacity="0"
                             />
@@ -244,90 +247,20 @@
                   aria-label="Open favorite"
                   title="Open favorite"
                 >
-                  <div class="counter-icon__inner">
-                    <svg
-                      width="40"
+                  <span class="counter-icon__inner">
+                    <img
+                      src="assets/img/svg/favorite.svg"
+                      alt="Избранное"
                       height="40"
-                      viewBox="0 0 32 29"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16 29C15.5 29 15 28.8 14.6 28.5C11.2 25.5 0 15.2 0 8.9C0 4 3.9 0 8.6 0C11.7 0 14.5 1.7 16 4.3C17.5 1.7 20.3 0 23.4 0C28.1 0 32 4 32 8.9C32 15.2 20.8 25.5 17.4 28.5C17 28.8 16.5 29 16 29ZM8.6 2C5 2 2 5.1 2 8.9C2 13.3 9.5 21.4 15.9 27H16C22.5 21.4 30 13.3 30 8.9C30 5.1 27 2 23.4 2C20.7 2 18.3 3.7 17.3 6.3C17.1 6.6 16.8 7 16 7C15.3 7 14.9 6.8 14.7 6.3C13.7 3.7 11.3 2 8.6 2Z"
-                        fill="#FFA501"
-                      />
-                    </svg>
+                      width="40"
+                    />
                     <span data-favorite-counter class="counter-icon__count"
                       >0</span
                     >
-                  </div>
+                  </span>
                 </button>
                 <div class="favorite__content">
-                  <ul data-favorite-list class="favorite__list">
-                    <li class="favorite__item">
-                      <article
-                        data-favorite-product
-                        class="favorite__product favorite-product"
-                        id="123"
-                      >
-                        <div class="favorite-product__image">
-                          <img
-                            src="assets/img/products/glasses-for-vision/1.webp"
-                            width="100"
-                            height="100"
-                            alt=""
-                            loading="lazy"
-                            class="favorite-product__img"
-                          />
-                        </div>
-                        <div class="favorite-product__wrapper">
-                          <h3 class="favorite-product__title">
-                            Ноутбук Apple MacBook Pro 16 TB i7 2.6
-                          </h3>
-                          <div class="favorite-product__inner">
-                            <div class="favorite-product__article">
-                              Art: 01-232
-                            </div>
-                            <div class="favorite-product__price">1900 грн</div>
-                          </div>
-                        </div>
-                        <button
-                          data-favorite-remove-btn
-                          class="favorite-product__delete"
-                          aria-label="Видалити товар"
-                          title="Видалити товар"
-                        >
-                          <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M18.5715 2.85715H13.5715V2.14285C13.5715 0.959387 12.6121 0 11.4287 0H8.57152C7.38805 0 6.42867 0.959387 6.42867 2.14285V2.85715H1.42865C1.03415 2.85715 0.714355 3.17695 0.714355 3.57145C0.714355 3.96595 1.03419 4.28571 1.42865 4.28571H2.20506L3.57151 19.3507C3.6052 19.7196 3.91537 20.0015 4.28581 20H15.7144C16.0848 20.0015 16.395 19.7196 16.4287 19.3507L17.7951 4.28571H18.5715C18.966 4.28571 19.2858 3.96591 19.2858 3.57141C19.2858 3.17691 18.966 2.85715 18.5715 2.85715ZM7.85722 2.14285C7.85722 1.74835 8.17702 1.42856 8.57152 1.42856H11.4287C11.8232 1.42856 12.143 1.74835 12.143 2.14285V2.85715H7.85726V2.14285H7.85722ZM15.0622 18.5714H4.93796L3.64295 4.28571H7.14296H16.3608L15.0622 18.5714Z"
-                              fill="#4D4D4D"
-                              fill-opacity="0.3"
-                            />
-                            <path
-                              d="M7.8573 16.381C7.85722 16.38 7.85717 16.379 7.85709 16.378L7.14279 6.37805C7.11479 5.98355 6.77227 5.68647 6.3778 5.71447C5.9833 5.74247 5.68623 6.085 5.71423 6.47946L6.42853 16.4794C6.45519 16.854 6.76733 17.144 7.14283 17.143H7.19427C7.58781 17.1157 7.88467 16.7745 7.8573 16.381Z"
-                              fill="#4D4D4D"
-                              fill-opacity="0.3"
-                            />
-                            <path
-                              d="M9.99994 5.71436C9.60544 5.71436 9.28564 6.03415 9.28564 6.42865V16.4286C9.28564 16.8231 9.60544 17.1429 9.99994 17.1429C10.3944 17.1429 10.7142 16.8231 10.7142 16.4286V6.42865C10.7142 6.03415 10.3944 5.71436 9.99994 5.71436Z"
-                              fill="#4D4D4D"
-                              fill-opacity="0.3"
-                            />
-                            <path
-                              d="M13.6219 5.71423C13.2274 5.68623 12.8849 5.9833 12.8569 6.3778L12.1426 16.3778C12.1137 16.7712 12.4091 17.1136 12.8026 17.1425C12.8038 17.1426 12.8049 17.1427 12.8062 17.1428H12.8569C13.2324 17.1437 13.5445 16.8537 13.5712 16.4792L14.2855 6.47921C14.3135 6.08475 14.0164 5.74227 13.6219 5.71423Z"
-                              fill="#4D4D4D"
-                              fill-opacity="0.3"
-                            />
-                          </svg>
-                        </button>
-                      </article>
-                    </li>
-                  </ul>
+                  <ul data-favorite-list class="favorite__list"></ul>
                   <div class="favorite__bottom">
                     <div class="favorite__fullprice-inner">
                       <span>Разом:</span>
@@ -339,48 +272,31 @@
                   </div>
                 </div>
               </div>
-              <button
-                type="button"
-                data-cart-btn
-                data-popup-link="popup-cart"
+              <a
+                href="cart.html"
+                target="_blank"
+                rel="noopener"
                 class="header__action header__cart counter-icon"
                 aria-label="Open card"
                 title="Open card"
               >
-                <div class="counter-icon__inner">
-                  <svg
-                    width="40"
+                <span class="counter-icon__inner">
+                  <img
+                    src="assets/img/svg/card.svg"
+                    alt="Корзина"
                     height="40"
-                    viewBox="0 0 35 29"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M26.1 19.9H7.9C5.3 19.9 3.7 18.1 3.3 16.3C3 15.2 0.7 7.1 0 4.9C-0.1 4.6 0.1 4.3 0.4 4.3H30V6.3H2.5C3.3 8.9 5 14.8 5.2 15.9C5.4 16.8 6.3 17.9 7.9 17.9H26.1V19.9Z"
-                      fill="#FFA501"
-                    />
-                    <path
-                      d="M24.6 24.8L23 23.7C23.2 23.4 23.4 23.1 23.5 22.7C24 21.2 27.5 8.8 29 3.5C29.5 1.4 31.3 0 33.5 0H34.7C34.8 0 35 0.2 35 0.3V1.6C35 1.8 34.8 2 34.7 2H33.5C32.3 2 31.2 2.8 30.9 4C29.4 9.3 25.9 21.8 25.4 23.4C25.2 23.9 24.9 24.4 24.6 24.8Z"
-                      fill="#FFA501"
-                    />
-                    <path d="M20.5 25H8.4V27H20.5V25Z" fill="#FFA501" />
-                    <path
-                      d="M6 29C4.3 29 3 27.6 3 26C3 24.3 4.4 23 6 23C7.7 23 9 24.4 9 26C9 27.6 7.7 29 6 29Z"
-                      fill="#FFA501"
-                    />
-                    <path
-                      d="M22.6 29C20.9 29 19.6 27.6 19.6 26C19.6 24.3 21 23 22.6 23C24.3 23 25.6 24.4 25.6 26C25.6 27.6 24.3 29 22.6 29Z"
-                      fill="#FFA501"
-                    />
-                  </svg>
+                    width="40"
+                  />
                   <span data-cart-counter class="counter-icon__count">0</span>
-                </div>
-              </button>
+                </span>
+              </a>
             </div>
           </div>
           <button
             type="button"
             class="header__burger-button burger-button"
             data-header-burger-btn
+            aria-expanded="false"
             aria-label="Open or close menu"
             title="Open or close menu"
           >
@@ -460,7 +376,7 @@
             data-direction="left"
             data-speed="slow"
           >
-            <div class="scroller__inner">
+            <ul class="scroller__inner">
               <li class="scroller__item">Доставка по Україні.</li>
               <li class="scroller__item">Доставка по Європі.</li>
               <li class="scroller__item">Гарантійний сервіс.</li>
@@ -469,7 +385,7 @@
               <li class="scroller__item">Доставка по Європі.</li>
               <li class="scroller__item">Гарантійний сервіс.</li>
               <li class="scroller__item">Безкоштовна консультація.</li>
-            </div>
+            </ul>
           </div>
           <div class="about__container">
             <div class="about__wrapper">
@@ -521,7 +437,7 @@
               data-direction="right"
               data-speed="fast"
             >
-              <div class="scroller__inner">
+              <ul class="scroller__inner">
                 <li class="scroller__item">BRAND 1</li>
                 <li class="scroller__item">BRAND 1</li>
                 <li class="scroller__item">BRAND 1</li>
@@ -538,7 +454,7 @@
                 <li class="scroller__item">BRAND 1</li>
                 <li class="scroller__item">BRAND 1</li>
                 <li class="scroller__item">BRAND 1</li>
-              </div>
+              </ul>
             </div>
           </div>
         </section>
@@ -644,7 +560,7 @@
                 </li>
                 <li class="soc1al__item">
                   <a
-                    href="https://wa.me/380974501872?text=Доброго дня%2C%20хочу%20запитати"
+                    href="https://wa.me/380974501872"
                     class="soc1al__link"
                     target="_blank"
                     aria-label="whatsapp"
@@ -690,7 +606,7 @@
                         height="28"
                         x="2"
                         y="2"
-                        fill="url(#a)"
+                        fill="url(#a1a)"
                         rx="6"
                       />
                       <rect
@@ -698,7 +614,7 @@
                         height="28"
                         x="2"
                         y="2"
-                        fill="url(#b)"
+                        fill="url(#b1a)"
                         rx="6"
                       />
                       <rect
@@ -706,7 +622,7 @@
                         height="28"
                         x="2"
                         y="2"
-                        fill="url(#c)"
+                        fill="url(#c1a)"
                         rx="6"
                       />
                       <path
@@ -727,46 +643,46 @@
                       />
                       <defs>
                         <radialGradient
-                          id="a"
+                          id="a1a"
                           cx="0"
                           cy="0"
                           r="1"
                           gradientTransform="rotate(-55.376 27.916 .066)scale(25.5196)"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop stop-color="#b13589" />
-                          <stop offset=".793" stop-color="#c62f94" />
-                          <stop offset="1" stop-color="#8a3ac8" />
+                          <stop offset="0%" stop-color="#b13589" />
+                          <stop offset="79.3%" stop-color="#c62f94" />
+                          <stop offset="100%" stop-color="#8a3ac8" />
                         </radialGradient>
                         <radialGradient
-                          id="b"
+                          id="b1a"
                           cx="0"
                           cy="0"
                           r="1"
                           gradientTransform="rotate(-65.136 29.766 6.89)scale(22.5942)"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop stop-color="#e0e8b7" />
-                          <stop offset=".445" stop-color="#fb8a2e" />
-                          <stop offset=".715" stop-color="#e2425c" />
+                          <stop offset="0%" stop-color="#e0e8b7" />
+                          <stop offset="44.5%" stop-color="#fb8a2e" />
+                          <stop offset="71.5%" stop-color="#e2425c" />
                           <stop
-                            offset="1"
+                            offset="100%"
                             stop-color="#e2425c"
                             stop-opacity="0"
                           />
                         </radialGradient>
                         <radialGradient
-                          id="c"
+                          id="c1a"
                           cx="0"
                           cy="0"
                           r="1"
                           gradientTransform="matrix(38.50003 -5.5 1.1764 8.23476 .5 3)"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop offset=".157" stop-color="#406adc" />
-                          <stop offset=".468" stop-color="#6a45be" />
+                          <stop offset="15.7%" stop-color="#406adc" />
+                          <stop offset="46.8%" stop-color="#6a45be" />
                           <stop
-                            offset="1"
+                            offset="100%"
                             stop-color="#6a45be"
                             stop-opacity="0"
                           />
@@ -812,82 +728,6 @@
           </div>
         </div>
       </footer>
-
-      <div data-popup="popup-cart" aria-hidden="true" class="popup">
-        <div data-popup-wrapper class="popup__wrapper">
-          <div data-popup-body class="popup__body">
-            <button
-              data-popup-close
-              type="button"
-              class="popup__close"
-              aria-label="Close popup"
-              title="Close popup"
-            >
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M30 10L10 30"
-                  stroke="#181C29"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M10 10L30 30"
-                  stroke="#181C29"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <div data-popup-content class="popup__content cart js-cart">
-              <div class="cart__wrapper">
-                <div class="cart__empty-container js-cart-empty-container">
-                  <div class="cart__empty">Ваш кошик порожній</div>
-                  <div class="cart__icon icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="48"
-                      height="48"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M24 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div class="cart__order-container js-cart-order-container">
-                  <div class="cart__order">Ваше замовлення</div>
-                  <form action="#" class="cart__form">
-                    <ul data-cart-list class="cart__list js-cart-list"></ul>
-                    <div class="cart__total-container">
-                      <h3 class="cart__title">Всього</h3>
-                      <div>
-                        <span class="cart__total-price js-cart-total-price"
-                          >1400</span
-                        >
-                        <span class="cart__currency">грн</span>
-                      </div>
-                    </div>
-                    <div class="cart__btns">
-                      <button type="submit" class="button cart__btn-order">
-                        Зробити замовлення
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </body>
 </html>

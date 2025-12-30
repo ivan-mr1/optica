@@ -1,4 +1,4 @@
-import { locales } from '../helpers/locales';
+import { locales } from '../locates/locales';
 
 class DateUpdater {
   constructor(selector = '.date', options = {}) {
