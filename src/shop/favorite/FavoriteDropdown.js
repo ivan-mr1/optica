@@ -18,58 +18,58 @@ export default class FavoriteDropdown {
     this.button = this.root.querySelector(this.selectors.button);
     this.content = this.root.querySelector(this.selectors.content);
 
-    this.bindEvents();
+    this.init();
   }
 
-  bindEvents() {
+  init() {
     this.button.addEventListener('click', this.handleToggle);
-    document.addEventListener('keydown', this.handleEscClose);
-    document.addEventListener('click', this.handleClickOutside);
   }
 
-  handleToggle = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    this.toggle();
-  };
-
-  handleEscClose = (e) => {
-    if (e.key === 'Escape' && this.isOpen) {
-      this.close();
-    }
-  };
-
-  handleClickOutside = (e) => {
-    if (!this.root.contains(e.target) && this.isOpen) {
-      this.close();
-    }
-  };
-
-  // Геттер для удобной проверки состояния
+  // Геттер состояния
   get isOpen() {
     return this.root.classList.contains(this.stateClasses.active);
   }
 
+  handleToggle = (e) => {
+    e.preventDefault();
+    this.isOpen ? this.close() : this.open();
+  };
+
+  // Глобальный клик: закрываем, если нажали не на попап
+  handleClickOutside = (e) => {
+    if (!this.root.contains(e.target)) {
+      this.close();
+    }
+  };
+
+  handleEscClose = (e) => {
+    if (e.key === 'Escape') {
+      this.close();
+    }
+  };
+
   open() {
     this.root.classList.add(this.stateClasses.active);
-    // Генерируем событие, чтобы другие компоненты знали, что меню открыто
+    this.button.setAttribute('aria-expanded', 'true');
+
+    // Вешаем глобальные слушатели ТОЛЬКО при открытии
+    document.addEventListener('click', this.handleClickOutside);
+    document.addEventListener('keydown', this.handleEscClose);
+
     this.root.dispatchEvent(new CustomEvent('favorite:opened'));
   }
 
   close() {
-    if (!this.isOpen) {
-      return;
-    }
     this.root.classList.remove(this.stateClasses.active);
-  }
+    this.button.setAttribute('aria-expanded', 'false');
 
-  toggle() {
-    this.isOpen ? this.close() : this.open();
+    // Снимаем слушатели, чтобы не нагружать систему
+    document.removeEventListener('click', this.handleClickOutside);
+    document.removeEventListener('keydown', this.handleEscClose);
   }
 
   destroy() {
+    this.close(); // Убираем глобальные слушатели, если они были
     this.button.removeEventListener('click', this.handleToggle);
-    document.removeEventListener('keydown', this.handleEscClose);
-    document.removeEventListener('click', this.handleClickOutside);
   }
 }

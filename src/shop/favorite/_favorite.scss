@@ -5,28 +5,26 @@
 
   &__content {
     position: absolute;
-    z-index: 100; // Гарантируем перекрытие контента
+    z-index: var(--z-index-dropdown);
     top: 100%;
     right: 0;
     width: fluid(450, 300);
-    margin-top: 15px; // Уменьшил отступ для компактности
+    margin-top: 15px;
     background-color: var(--color-white);
     border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); // Сделал тень мягче
-
-    // Анимация
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     visibility: hidden;
     opacity: 0;
     transition:
       transform 0.3s ease,
       opacity 0.3s ease,
       visibility 0.3s;
-    transform: translateY(10px); // Смещение вниз для эффекта выплывания
+    transform: translateY(10px);
     pointer-events: none;
     will-change: opacity, transform;
 
     @media (max-width: em(767.98)) {
-      position: fixed; // На мобилках лучше фиксировать по центру экрана
+      position: fixed;
       top: 80px;
       right: 10px;
       left: 10px;
@@ -34,7 +32,6 @@
       transform: translateY(10px);
     }
 
-    // Состояние открытия
     .favorite.is-active & {
       visibility: visible;
       opacity: 1;
@@ -46,9 +43,9 @@
   &__list {
     overflow-y: auto;
     max-height: 400px;
-    padding: 10px 0; // Добавил внутренние отступы для списка
+    padding: 10px 0;
 
-    // Стилизация скроллбара для красоты
+    // Стилизация скроллбара
     &::-webkit-scrollbar {
       width: 4px;
     }
@@ -64,7 +61,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: #f9f9f9; // Выделил футер цветом
+    background: #f9f9f9;
     border-top: 1px solid #eaeaea;
     border-radius: 0 0 8px 8px;
   }
