@@ -32,7 +32,7 @@ export default defineConfig([
     rules: {
       ...js.configs.recommended.rules,
       'prettier/prettier': 'error',
-      'no-console': ['error', { allow: ['error'] }],
+      'no-console': 'off',
       eqeqeq: 'warn',
       curly: 'warn',
       'no-else-return': 'warn',
