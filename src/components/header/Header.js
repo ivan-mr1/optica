@@ -14,7 +14,6 @@ class Header {
   constructor() {
     this.rootElement = document.querySelector(this.selectors.root);
     if (!this.rootElement) {
-      console.error('Header root element not found');
       return;
     }
 
@@ -27,18 +26,35 @@ class Header {
     );
 
     this.bindEvents();
+
+    this.setHeightProperty();
+  }
+
+  setHeightProperty = () => {
+    const height = this.rootElement.offsetHeight;
+    document.documentElement.style.setProperty(
+      '--header-height',
+      `${height}px`,
+    );
+  };
+
+  updateAccessibility(isOpen) {
+    this.burgerButtonElement.setAttribute('aria-expanded', isOpen);
+    document.body.classList.toggle(this.stateClasses.isLock, isOpen);
   }
 
   openMenu() {
     this.burgerButtonElement.classList.add(this.stateClasses.isActive);
     this.menuElement.classList.add(this.stateClasses.isActive);
-    document.body.classList.add(this.stateClasses.isLock);
+    this.updateAccessibility(true);
+    document.addEventListener('keydown', this.onEscapePress);
   }
 
   closeMenu() {
     this.burgerButtonElement.classList.remove(this.stateClasses.isActive);
     this.menuElement.classList.remove(this.stateClasses.isActive);
-    document.body.classList.remove(this.stateClasses.isLock);
+    this.updateAccessibility(false);
+    document.removeEventListener('keydown', this.onEscapePress);
   }
 
   toggleMenu = () => {
@@ -62,42 +78,31 @@ class Header {
 
   onMenuClick = (event) => {
     const target = event.target;
-    if (target.closest('a.menu__link') || target.closest('button')) {
+    if (target.closest('a') || target.closest('button')) {
       this.closeMenu();
     }
   };
 
   bindEvents() {
     if (!this.burgerButtonElement || !this.menuElement) {
-      console.error('Burger button or menu element not found');
       return;
     }
 
     this.burgerButtonElement.addEventListener('click', this.toggleMenu);
-
     this.menuElement.addEventListener('click', this.onMenuClick);
+
+    window.addEventListener('resize', this.setHeightProperty);
 
     if (this.overlayElement) {
       this.overlayElement.addEventListener('click', this.onOverlayClick);
     }
-
-    document.addEventListener('keydown', this.onEscapePress);
   }
 
   destroy() {
-    if (!this.burgerButtonElement || !this.menuElement) {
-      return;
-    }
-
     this.burgerButtonElement.removeEventListener('click', this.toggleMenu);
-
     this.menuElement.removeEventListener('click', this.onMenuClick);
-
-    if (this.overlayElement) {
-      this.overlayElement.removeEventListener('click', this.onOverlayClick);
-    }
-
     document.removeEventListener('keydown', this.onEscapePress);
+    window.removeEventListener('resize', this.setHeightProperty);
   }
 }
 

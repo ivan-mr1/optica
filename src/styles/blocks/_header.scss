@@ -31,7 +31,7 @@
     position: relative;
     z-index: 5;
     font-family: var(--second-family);
-    font-size: fluid(30, 20);
+    font-size: rem(32);
     color: var(--color-light);
     cursor: pointer;
 
@@ -46,16 +46,16 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: rem(10);
+    gap: rem(16);
   }
 
   &__action {
-    --size: #{rem(44)};
+    --size: #{rem(40)};
 
     @include square(var(--size));
 
-    @include hover {
-      transform: scale(1.09);
-    }
+    // @include hover {
+    //   transform: scale(1.09);
+    // }
   }
 }
