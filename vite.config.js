@@ -7,14 +7,6 @@ import { buildConfig } from './vite-plugins/build-config';
 export default defineConfig({
   root: 'src',
   base: '',
-
   plugins: [SassGlob(), svgSpritePlugin(), imageOptimizerPlugin()],
-
   build: buildConfig,
-
-  server: {
-    host: true,
-    port: 3000,
-    open: true,
-  },
 });
