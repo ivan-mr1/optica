@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="optica store" />
-    <title>Optica</title>
+    <title>Optica | Кошик</title>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -29,9 +29,15 @@
 
   <body>
     <div class="wrapper">
-      <header class="header" data-header data-right-padding>
+      <header class="header dark" data-header data-right-padding>
         <div class="header__container">
-          <a href="/" class="logo header__logo">Optica</a>
+          <a
+            href="index.html"
+            target="_blank"
+            rel="noopener"
+            class="logo header__logo"
+            >Optica</a
+          >
           <div class="header__overlay">
             <nav class="header__menu menu" data-header-menu>
               <ul class="menu__list">
@@ -250,7 +256,7 @@
                   <span class="counter-icon__inner">
                     <img
                       src="./assets/img/svg/favorite.svg"
-                      alt="Избранное"
+                      alt="Image"
                       height="40"
                       width="40"
                     />
@@ -273,7 +279,7 @@
                 </div>
               </div>
               <a
-                href="cart.html"
+                href="/"
                 target="_blank"
                 rel="noopener"
                 class="header__action header__cart counter-icon"
@@ -283,7 +289,7 @@
                 <span class="counter-icon__inner">
                   <img
                     src="./assets/img/svg/card.svg"
-                    alt="Корзина"
+                    alt="Image"
                     height="40"
                     width="40"
                   />
@@ -309,210 +315,105 @@
         </div>
       </header>
       <main class="page">
-        <section
-          class="parent-video-fon page__hero hero"
-          aria-labelledby="hero-title"
-        >
-          <div class="hero__container">
-            <div class="hero__body">
-              <div class="hero__subtitle">
-                <p>
-                  Завітайте до нашого магазину — ми допоможемо підібрати
-                  ідеальні окуляри та надамо безкоштовну консультацію
-                </p>
-              </div>
-              <h1 class="hero__title" id="hero-title">
-                Ми допоможемо вам побачити світ по-новому.
-              </h1>
-              <div class="hero__buttons">
-                <a href="#" class="hero__button button" data-goto=".about"
-                  >ПРО НАС</a
-                >
-                <a href="#" class="hero__button button" data-goto=".products"
-                  >ПРОДУКТИ</a
-                >
-              </div>
-            </div>
-          </div>
-          <video class="video-fon" autoplay muted loop>
-            <source type="video/mp4" src="./assets/video/6.mp4" />
-          </video>
-          <button
-            type="button"
-            class="scroll-down-btn"
-            data-goto=".about"
-            title="scroll down"
-            aria-label="scroll-down"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="50"
-              height="80"
-              viewBox="0 0 50 80"
-            >
-              <path
-                class="first-path"
-                fill="#FFFFFF"
-                d="M24.752,79.182c-0.397,0-0.752-0.154-1.06-0.463L2.207,57.234c-0.306-0.305-0.458-0.656-0.458-1.057
-        s0.152-0.752,0.458-1.059l2.305-2.305c0.309-0.309,0.663-0.461,1.06-0.461c0.398,0,0.752,0.152,1.061,0.461l18.119,18.119
-        l18.122-18.119c0.306-0.309,0.657-0.461,1.057-0.461c0.402,0,0.753,0.152,1.059,0.461l2.306,2.305
-        c0.308,0.307,0.461,0.658,0.461,1.059s-0.153,0.752-0.461,1.057L25.813,78.719C25.504,79.027,25.15,79.182,24.752,79.182z"
-              />
-              <path
-                class="second-path"
-                fill="#FFFFFF"
-                d="M24.752,58.25c-0.397,0-0.752-0.154-1.06-0.463L2.207,36.303c-0.306-0.304-0.458-0.655-0.458-1.057
-        c0-0.4,0.152-0.752,0.458-1.058l2.305-2.305c0.309-0.308,0.663-0.461,1.06-0.461c0.398,0,0.752,0.153,1.061,0.461l18.119,18.12
-        l18.122-18.12c0.306-0.308,0.657-0.461,1.057-0.461c0.402,0,0.753,0.153,1.059,0.461l2.306,2.305
-        c0.308,0.306,0.461,0.657,0.461,1.058c0,0.401-0.153,0.753-0.461,1.057L25.813,57.787C25.504,58.096,25.15,58.25,24.752,58.25z"
-              />
-            </svg>
-          </button>
-        </section>
+        <section class="cart">
+          <div class="cart__container">
+            <h1 class="cart__title title">Ваш кошик</h1>
 
-        <section class="page__about about" aria-labelledby="about-title">
-          <div
-            class="scroller descr__scroller"
-            data-direction="left"
-            data-speed="slow"
-          >
-            <ul class="scroller__inner">
-              <li class="scroller__item">Доставка по Україні.</li>
-              <li class="scroller__item">Доставка по Європі.</li>
-              <li class="scroller__item">Гарантійний сервіс.</li>
-              <li class="scroller__item">Безкоштовна консультація.</li>
-              <li class="scroller__item">Доставка по Україні.</li>
-              <li class="scroller__item">Доставка по Європі.</li>
-              <li class="scroller__item">Гарантійний сервіс.</li>
-              <li class="scroller__item">Безкоштовна консультація.</li>
-            </ul>
-          </div>
-          <div class="about__container">
-            <div class="about__wrapper">
-              <div class="ibg about__image">
-                <img
-                  src="./assets/img/second/1.webp"
-                  alt="about photo"
-                  class="about__img"
-                  width="452"
-                  height="452"
-                  loading="lazy"
-                  decoding="async"
-                />
+            <div class="cart__wrapper">
+              <div class="cart__content">
+                <ul class="cart__list" data-cart-list>
+                  <li class="cart__item cart-item">
+                    <a href="#" class="cart-item__image">
+                      <img
+                        src="assets/img/products/glasses-1.jpg"
+                        alt="Окуляри"
+                      />
+                    </a>
+                    <div class="cart-item__info">
+                      <h3 class="cart-item__name">Ray-Ban Classic Wayfarer</h3>
+                      <p class="cart-item__category">Сонцезахисні окуляри</p>
+                    </div>
+                    <div class="cart-item__actions">
+                      <div class="cart-item__quantity quantity">
+                        <button
+                          type="button"
+                          class="quantity__button quantity__button--minus"
+                        >
+                          -
+                        </button>
+                        <input
+                          type="number"
+                          class="quantity__input"
+                          value="1"
+                          readonly
+                        />
+                        <button
+                          type="button"
+                          class="quantity__button quantity__button--plus"
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div class="cart-item__price-block">
+                        <span class="cart-item__price">2 500 грн</span>
+                      </div>
+                      <button
+                        type="button"
+                        class="cart-item__delete"
+                        aria-label="Видалити товар"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M15.8333 4.16666L4.16666 15.8333"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M4.16666 4.16666L15.8333 15.8333"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <div class="about__descr">
-                <div class="about__header header-block">
-                  <h2 class="header-block__title" id="about-title">Про нас</h2>
+
+              <aside class="cart__summary summary">
+                <h2 class="summary__title">Підсумок замовлення</h2>
+                <div class="summary__row">
+                  <span>Товари</span>
+                  <span data-cart-total-price>2 500</span><span> грн</span>
                 </div>
-                <div class="about__text">
-                  <p>
-                    OPTICA – це більше, ніж просто місце призначення, це подорож
-                    у світ стилю, майстерності та самовираження. Ми вважаємо, що
-                    вибір окулярів має бути натхненним, а не поспіхом. Саме тому
-                    ми створили теплий, гостинний простір, де ви можете
-                    сповільнитися, дослідити виняткові дизайни та відкрити для
-                    себе вироби, які справді відображають вашу особистість.
-                    Відвідайте нас за адресою ..., та відчуйте новий спосіб
-                    бачення – де бачення стає мистецтвом, а окуляри – вашим
-                    вираженням.
-                  </p>
+                <div class="summary__row">
+                  <span>Доставка</span>
+                  <span>За тарифами перевізника</span>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
-          class="page__partners partners"
-          aria-labelledby="partners-title"
-        >
-          <div class="partners__container">
-            <div class="partners__header-block header-block">
-              <h2 class="header-block__title" id="partners-title">
-                Популярні бренди
-              </h2>
-            </div>
-            <div
-              class="scroller partners__scroller"
-              data-direction="right"
-              data-speed="fast"
-            >
-              <ul class="scroller__inner">
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-                <li class="scroller__item">BRAND 1</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section
-          class="page__products products"
-          aria-labelledby="products-title"
-        >
-          <div class="products__container">
-            <div class="products__header header-block">
-              <h1
-                class="header-block__title products__title"
-                id="products-title"
-              >
-                Каталог
-              </h1>
-            </div>
-            <ul class="products__list" data-products-catalog></ul>
-            <div class="pagination__container">
-              <div data-pagination class="pagination hidden">
-                <button
-                  data-pagination-btn-prev
-                  type="button"
-                  class="pagination__btn pagination__btn-prev"
-                >
-                  <svg
-                    style="transform: rotate(180deg) scale(0.55)"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
+                <hr class="summary__hr" />
+                <div class="summary__total">
+                  <span>Загальна сума:</span>
+                  <span class="summary__total-price"
+                    ><span data-cart-total-price>2 500</span> грн</span
                   >
-                    <path
-                      fill="#84868E"
-                      d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"
-                    />
-                  </svg>
+                </div>
+                <button type="button" class="summary__button button">
+                  ОФОРМИТИ ЗАМОВЛЕННЯ
                 </button>
-                <ul data-pagination-list class="pagination__list"></ul>
-                <button
-                  data-pagination-btn-next
-                  type="button"
-                  class="pagination__btn pagination__btn-next"
+                <a href="index.html" class="summary__link-back"
+                  >Повернутися до покупок</a
                 >
-                  <svg
-                    style="transform: rotate(0deg) scale(0.55)"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="#84868E"
-                      d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"
-                    />
-                  </svg>
-                </button>
-              </div>
+              </aside>
             </div>
           </div>
         </section>
@@ -530,7 +431,7 @@
               <ul class="soc1al__list">
                 <li class="soc1al__item">
                   <a
-                    href="https://t.me/Optikaonline"
+                    href="https://t.me/"
                     class="soc1al__link"
                     target="_blank"
                     aria-label="Telegram"
@@ -560,7 +461,7 @@
                 </li>
                 <li class="soc1al__item">
                   <a
-                    href="https://wa.me/380974501872"
+                    href="https://wa.me/380974501872?text=Доброго дня%2C%20хочу%20запитати"
                     class="soc1al__link"
                     target="_blank"
                     aria-label="whatsapp"
@@ -606,7 +507,7 @@
                         height="28"
                         x="2"
                         y="2"
-                        fill="url(#a1a)"
+                        fill="url(#a)"
                         rx="6"
                       />
                       <rect
@@ -614,7 +515,7 @@
                         height="28"
                         x="2"
                         y="2"
-                        fill="url(#b1a)"
+                        fill="url(#b)"
                         rx="6"
                       />
                       <rect
@@ -622,7 +523,7 @@
                         height="28"
                         x="2"
                         y="2"
-                        fill="url(#c1a)"
+                        fill="url(#c)"
                         rx="6"
                       />
                       <path
@@ -643,46 +544,46 @@
                       />
                       <defs>
                         <radialGradient
-                          id="a1a"
+                          id="a"
                           cx="0"
                           cy="0"
                           r="1"
                           gradientTransform="rotate(-55.376 27.916 .066)scale(25.5196)"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop offset="0%" stop-color="#b13589" />
-                          <stop offset="79.3%" stop-color="#c62f94" />
-                          <stop offset="100%" stop-color="#8a3ac8" />
+                          <stop stop-color="#b13589" />
+                          <stop offset=".793" stop-color="#c62f94" />
+                          <stop offset="1" stop-color="#8a3ac8" />
                         </radialGradient>
                         <radialGradient
-                          id="b1a"
+                          id="b"
                           cx="0"
                           cy="0"
                           r="1"
                           gradientTransform="rotate(-65.136 29.766 6.89)scale(22.5942)"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop offset="0%" stop-color="#e0e8b7" />
-                          <stop offset="44.5%" stop-color="#fb8a2e" />
-                          <stop offset="71.5%" stop-color="#e2425c" />
+                          <stop stop-color="#e0e8b7" />
+                          <stop offset=".445" stop-color="#fb8a2e" />
+                          <stop offset=".715" stop-color="#e2425c" />
                           <stop
-                            offset="100%"
+                            offset="1"
                             stop-color="#e2425c"
                             stop-opacity="0"
                           />
                         </radialGradient>
                         <radialGradient
-                          id="c1a"
+                          id="c"
                           cx="0"
                           cy="0"
                           r="1"
                           gradientTransform="matrix(38.50003 -5.5 1.1764 8.23476 .5 3)"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop offset="15.7%" stop-color="#406adc" />
-                          <stop offset="46.8%" stop-color="#6a45be" />
+                          <stop offset=".157" stop-color="#406adc" />
+                          <stop offset=".468" stop-color="#6a45be" />
                           <stop
-                            offset="100%"
+                            offset="1"
                             stop-color="#6a45be"
                             stop-opacity="0"
                           />
