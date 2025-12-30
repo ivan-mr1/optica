@@ -1,36 +1,50 @@
-import SassGlob from 'vite-plugin-sass-glob-import';
 import { defineConfig } from 'vite';
+import path from 'path';
 import { sync } from 'glob';
+import SassGlob from 'vite-plugin-sass-glob-import';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
-
-// const noAttr = () => {
-//   return {
-//     transformIndexHtml(html) {
-//       return html.replaceAll(' crossorigin', '');
-//     },
-//   };
-// };
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 export default defineConfig({
   plugins: [
     SassGlob(),
-    // noAttr(),
+    // Конфигурация SVG спрайта
+    createSvgIconsPlugin({
+      // Путь к папке с иконками
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+      // Формат ID: icon-monochrome-name или icon-colored-name
+      symbolId: 'icon-[dir]-[name]',
+      svgoOptions: {
+        full: true, // Отключаем все дефолтные плагины SVGO, чтобы они не меняли цвета сами по себе
+        plugins: [
+          {
+            name: 'removeAttrs',
+            params: {
+              attrs: '(fill|stroke)',
+            },
+            // Логика: если файл в папке 'colored', мы возвращаем null,
+            // тем самым отменяя удаление атрибутов для этого файла
+            fn: (item, params, info) => {
+              if (info.path && info.path.includes('colored')) {
+                return null;
+              }
+            },
+          },
+          // Базовые безопасные оптимизации для всех иконок
+          'removeXMLNS',
+          'removeDimensions',
+          'removeViewBox', // Опционально, если хотите оставить viewBox, удалите эту строку
+        ],
+      },
+    }),
     ViteImageOptimizer({
-      png: {
-        quality: 70,
-      },
-      jpeg: {
-        quality: 70,
-      },
-      jpg: {
-        quality: 70,
-      },
-      webp: {
-        quality: 85,
-      },
-      avif: {
-        lossless: true,
-      },
+      png: { quality: 70 },
+      jpeg: { quality: 70 },
+      jpg: { quality: 70 },
+      webp: { quality: 85 },
+      avif: { lossless: true },
+      // Исключаем svg из оптимизатора, так как мы настроили его выше в createSvgIconsPlugin
+      svg: false,
     }),
   ],
   build: {

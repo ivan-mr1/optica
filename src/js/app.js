@@ -1,5 +1,5 @@
 'use strict';
-
+import 'virtual:svg-icons-register';
 import pageNavigation from './modules/pageNavigation';
 import headerFon from '../components/header/headerFon';
 import Header from './../components/header/Header';
