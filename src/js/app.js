@@ -6,7 +6,6 @@ import Header from './../components/header/Header';
 import ScrollUpButton from '../components/scrollUpButton/ScrollUpButton';
 import scroller from './../components/scroller/scroller';
 import Popup from './../components/popup/popup';
-import FavoriteDropdown from './../shop/favorite/FavoriteDropdown';
 import shop from '../shop/shop';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -16,6 +15,5 @@ window.addEventListener('DOMContentLoaded', () => {
   new ScrollUpButton();
   new Popup();
   scroller();
-  new FavoriteDropdown();
   shop();
 });

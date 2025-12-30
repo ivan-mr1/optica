@@ -9,7 +9,7 @@ export default class Pagination {
 
   stateClasses = {
     active: 'is-active',
-    hidden: 'hidden',
+    hidden: 'is-hidden',
   };
 
   state = {
@@ -30,53 +30,118 @@ export default class Pagination {
       return;
     }
 
+    this.renderPagination();
     this.render();
     this.bindEvents();
   }
 
-  render() {
-    this.renderProducts();
-    this.renderPagination();
-    this.updateActivePage();
+  /**
+   * Считает общее количество страниц
+   */
+  getPagesCount() {
+    return Math.ceil(this.products.length / this.state.productsPerPage);
   }
 
-  renderProducts() {
+  /**
+   * Основной метод обновления: товары + состояние кнопок
+   */
+  render() {
+    this.#renderProducts();
+    this.renderPagination(); // Перерисовываем кнопки, чтобы обновить "многоточие"
+    this.#updateArrowsState();
+  }
+
+  /**
+   * Нарезка массива продуктов и рендер в контейнер
+   */
+  #renderProducts() {
     const { currentPage, productsPerPage } = this.state;
     const start = (currentPage - 1) * productsPerPage;
     const end = start + productsPerPage;
 
     const productsSlice = this.products.slice(start, end);
     this.renderList.render(productsSlice);
+
+    // Умный скролл вверх с запасом (например, под шапку)
+    if (currentPage > 1) {
+      const yOffset = -100;
+      const element = this.renderList.container;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   }
 
+  /**
+   * Генерация кнопок пагинации с логикой многоточия
+   */
   renderPagination() {
     const pagesCount = this.getPagesCount();
-    this.paginationList.innerHTML = '';
 
-    for (let i = 1; i <= pagesCount; i++) {
-      const li = document.createElement('li');
-      li.className = 'pagination__item';
-      li.dataset.page = i;
-      li.textContent = i;
-
-      this.paginationList.append(li);
+    if (pagesCount <= 1) {
+      this.pagination?.classList.add(this.stateClasses.hidden);
+      return;
     }
 
+    this.paginationList.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+    const { currentPage } = this.state;
+
+    // Настройки видимости (1 ... 4 5 [6] 7 8 ... 20)
+    const range = 2;
+    const left = currentPage - range;
+    const right = currentPage + range;
+
+    for (let i = 1; i <= pagesCount; i++) {
+      if (i === 1 || i === pagesCount || (i >= left && i <= right)) {
+        fragment.append(this.#createPageItem(i));
+      } else if (i === left - 1 && i > 1) {
+        fragment.append(this.#createSeparator());
+      } else if (i === right + 1 && i < pagesCount) {
+        fragment.append(this.#createSeparator());
+      }
+    }
+
+    this.paginationList.append(fragment);
     this.pagination?.classList.remove(this.stateClasses.hidden);
   }
 
-  getPagesCount() {
-    return Math.ceil(this.products.length / this.state.productsPerPage);
+  /**
+   * Создание HTML-элемента страницы
+   */
+  #createPageItem(pageNum) {
+    const li = document.createElement('li');
+    li.className = 'pagination__item';
+    if (pageNum === this.state.currentPage) {
+      li.classList.add(this.stateClasses.active);
+    }
+    li.dataset.page = pageNum;
+    li.textContent = pageNum;
+    return li;
   }
 
-  updateActivePage() {
-    const items = this.paginationList.querySelectorAll(this.selectors.pageItem);
-    items.forEach((item) => {
-      item.classList.toggle(
-        this.stateClasses.active,
-        Number(item.dataset.page) === this.state.currentPage,
-      );
-    });
+  /**
+   * Создание разделителя "..."
+   */
+  #createSeparator() {
+    const li = document.createElement('li');
+    li.className = 'pagination__separator';
+    li.textContent = '...';
+    return li;
+  }
+
+  /**
+   * Блокировка стрелок на первой и последней страницах
+   */
+  #updateArrowsState() {
+    const pagesCount = this.getPagesCount();
+    if (this.btnPrev) {
+      this.btnPrev.disabled = this.state.currentPage === 1;
+    }
+    if (this.btnNext) {
+      this.btnNext.disabled = this.state.currentPage === pagesCount;
+    }
   }
 
   bindEvents() {
@@ -87,7 +152,7 @@ export default class Pagination {
 
   onPageClick = (event) => {
     const item = event.target.closest(this.selectors.pageItem);
-    if (!item) {
+    if (!item || item.classList.contains(this.stateClasses.active)) {
       return;
     }
 
@@ -96,22 +161,26 @@ export default class Pagination {
   };
 
   onNextClick = () => {
-    const pagesCount = this.getPagesCount();
-    this.state.currentPage =
-      this.state.currentPage >= pagesCount ? 1 : this.state.currentPage + 1;
-    this.render();
+    if (this.state.currentPage < this.getPagesCount()) {
+      this.state.currentPage++;
+      this.render();
+    }
   };
 
   onPrevClick = () => {
-    const pagesCount = this.getPagesCount();
-    this.state.currentPage =
-      this.state.currentPage <= 1 ? pagesCount : this.state.currentPage - 1;
-    this.render();
+    if (this.state.currentPage > 1) {
+      this.state.currentPage--;
+      this.render();
+    }
   };
 
+  /**
+   * Внешний метод для обновления списка товаров (например, при фильтрации)
+   */
   updateProducts(products) {
     this.products = products || [];
     this.state.currentPage = 1;
+    this.renderPagination();
     this.render();
   }
 }
