@@ -1,8 +1,8 @@
 import Storage from '../../js/localStorage/Storage';
 
-// Инициализируем хранилища вне класса
-const cartStorage = new Storage('user_cart');
-const favStorage = new Storage('user_favorites');
+// Инициализируем хранилища с указанием имен событий для синхронизации
+const cartStorage = new Storage('user_cart', 'cart:updated');
+const favStorage = new Storage('user_favorites', 'favorite:updated');
 
 export default class ProductCard {
   settings = {
@@ -18,19 +18,25 @@ export default class ProductCard {
 
   stateClasses = {
     active: 'is-active',
-    inCart: 'is-in-cart', // добавим класс для корзины
+    inCart: 'is-in-cart',
   };
 
   constructor(product = {}) {
     this.product = product;
     this.element = null;
     this.subElements = {};
+
+    // Привязываем контекст, чтобы правильно удалять слушатели в destroy()
+    this.onFavoriteUpdate = this.syncFavoriteState.bind(this);
+    this.onCartUpdate = this.syncCartState.bind(this);
   }
 
+  // Форматирование цены (локализация)
   #formatPrice(price) {
     return new Intl.NumberFormat('uk-UA').format(price);
   }
 
+  // HTML шаблон карточки
   getTemplate() {
     const { id, image, model, description, article, price } = this.product;
 
@@ -71,12 +77,14 @@ export default class ProductCard {
     this.element.append(wrapper.firstElementChild);
 
     this.#initSubElements();
-    this.#applyInitialState(); // <-- Применяем данные из Storage
+    this.syncFavoriteState(); // Проверка состояния избранного при загрузке
+    this.syncCartState(); // Проверка состояния корзины при загрузке
     this.#initEventListeners();
 
     return this.element;
   }
 
+  // Поиск всех динамических элементов внутри карточки
   #initSubElements() {
     const elements = this.element.querySelectorAll(
       '[data-card-buy-btn], [data-card-favorite], [data-card-price]',
@@ -88,40 +96,43 @@ export default class ProductCard {
     });
   }
 
-  // Новый метод для синхронизации UI с хранилищем при загрузке
-  #applyInitialState() {
-    const id = this.product.id;
+  // Синхронизация визуального состояния "Избранного"
+  syncFavoriteState() {
+    const isActive = favStorage.check(this.product.id);
+    this.subElements.cardFavorite?.classList.toggle(
+      this.stateClasses.active,
+      isActive,
+    );
+  }
 
-    // Проверка избранного
-    if (favStorage.check(id)) {
-      this.subElements.cardFavorite?.classList.add(this.stateClasses.active);
-    }
-
-    // Проверка корзины
-    if (cartStorage.check(id)) {
-      this.#updateBuyButton(true);
-    }
+  // Синхронизация визуального состояния "Корзины"
+  syncCartState() {
+    const isInCart = cartStorage.check(this.product.id);
+    this.#updateBuyButton(isInCart);
   }
 
   #initEventListeners() {
-    // Обработка избранного
+    // Клик по сердечку: просто переключаем состояние в Storage
     this.subElements.cardFavorite?.addEventListener('click', () => {
       favStorage.toggle(this.product.id);
-      this.subElements.cardFavorite.classList.toggle(this.stateClasses.active);
     });
 
-    // Обработка корзины
+    // Клик по кнопке купить
     this.subElements.cardBuyBtn?.addEventListener('click', () => {
-      cartStorage.toggle(this.product.id);
-      const isInCart = cartStorage.check(this.product.id);
-      this.#updateBuyButton(isInCart);
-
-      // Оповещаем систему, что данные в корзине изменились
-      document.dispatchEvent(new CustomEvent('cart:updated'));
+      if (!cartStorage.check(this.product.id)) {
+        cartStorage.add(this.product.id);
+      } else {
+        // Опционально: переход в корзину, если товар уже там
+        // window.location.href = '/cart.html';
+      }
     });
+
+    // Слушаем глобальные события (включая изменения из других вкладок)
+    document.addEventListener('favorite:updated', this.onFavoriteUpdate);
+    document.addEventListener('cart:updated', this.onCartUpdate);
   }
 
-  // Выносим обновление кнопки в отдельный метод, чтобы не дублировать код
+  // Метод для обновления внешнего вида кнопки покупки
   #updateBuyButton(isInCart) {
     const btn = this.subElements.cardBuyBtn;
     if (!btn) {
@@ -132,6 +143,7 @@ export default class ProductCard {
     btn.classList.toggle(this.stateClasses.inCart, isInCart);
   }
 
+  // Возможность обновить цену снаружи (например, при смене валюты или скидках)
   updatePrice(newPrice) {
     this.product.price = newPrice;
     if (this.subElements.cardPrice) {
@@ -139,8 +151,11 @@ export default class ProductCard {
     }
   }
 
+  // Очистка памяти при удалении карточки из DOM
   destroy() {
     if (this.element) {
+      document.removeEventListener('favorite:updated', this.onFavoriteUpdate);
+      document.removeEventListener('cart:updated', this.onCartUpdate);
       this.element.remove();
     }
     this.element = null;
