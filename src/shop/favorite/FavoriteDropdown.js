@@ -25,7 +25,6 @@ export default class FavoriteDropdown {
     this.button.addEventListener('click', this.handleToggle);
   }
 
-  // Геттер состояния
   get isOpen() {
     return this.root.classList.contains(this.stateClasses.active);
   }
@@ -35,7 +34,6 @@ export default class FavoriteDropdown {
     this.isOpen ? this.close() : this.open();
   };
 
-  // Глобальный клик: закрываем, если нажали не на попап
   handleClickOutside = (e) => {
     if (!this.root.contains(e.target)) {
       this.close();
@@ -69,7 +67,7 @@ export default class FavoriteDropdown {
   }
 
   destroy() {
-    this.close(); // Убираем глобальные слушатели, если они были
+    this.close();
     this.button.removeEventListener('click', this.handleToggle);
   }
 }

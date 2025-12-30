@@ -84,27 +84,4 @@
     font-size: fluid(22, 18);
     font-weight: 600;
   }
-
-  &__btn {
-    padding: fluid(12, 10);
-    font-weight: 600;
-    color: var(--color-orange);
-    background-color: transparent;
-    border: 1px solid var(--color-orange);
-    border-radius: 4px;
-    transition: all 0.3s ease;
-
-    &.is-in-cart {
-      color: var(--color-white);
-      background-color: var(--color-orange);
-      cursor: default;
-    }
-
-    @include hover {
-      &:not(.is-in-cart) {
-        color: var(--color-white);
-        background-color: var(--color-orange);
-      }
-    }
-  }
 }
