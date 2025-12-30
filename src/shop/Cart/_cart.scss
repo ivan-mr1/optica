@@ -1,13 +1,13 @@
 @use './../../styles/helpers/' as *;
 
 .cart {
-  padding: 40px 0 80px;
   padding-top: 130px;
+  padding-bottom: 40px;
 
   &__title {
     margin-bottom: 30px;
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   &__wrapper {

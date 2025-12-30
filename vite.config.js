@@ -1,57 +1,12 @@
-import SassGlob from 'vite-plugin-sass-glob-import';
 import { defineConfig } from 'vite';
-import { sync } from 'glob';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
-
-// const noAttr = () => {
-//   return {
-//     transformIndexHtml(html) {
-//       return html.replaceAll(' crossorigin', '');
-//     },
-//   };
-// };
+import SassGlob from 'vite-plugin-sass-glob-import';
+import { svgSpritePlugin } from './vite-plugins/svg-sprite';
+import { imageOptimizerPlugin } from './vite-plugins/image-optimizer';
+import { buildConfig } from './vite-plugins/build-config';
 
 export default defineConfig({
-  plugins: [
-    SassGlob(),
-    // noAttr(),
-    ViteImageOptimizer({
-      png: {
-        quality: 70,
-      },
-      jpeg: {
-        quality: 70,
-      },
-      jpg: {
-        quality: 70,
-      },
-      webp: {
-        quality: 85,
-      },
-      avif: {
-        lossless: true,
-      },
-    }),
-  ],
-  build: {
-    rollupOptions: {
-      input: sync('src/**/*.html'.replace(/\\/g, '/')),
-      output: {
-        assetFileNames: (assetInfo) => {
-          let extType = assetInfo.name;
-          if (/css/.test(extType)) {
-            extType = 'assets/css';
-          }
-          return assetInfo.originalFileName ?? `${extType}/[name][extname]`;
-        },
-        chunkFileNames: 'assets/js/[name].js',
-        entryFileNames: 'assets/js/[name].js',
-      },
-    },
-    assetsInlineLimit: 0,
-    emptyOutDir: true,
-    outDir: '../dist',
-  },
   root: 'src',
   base: '',
+  plugins: [SassGlob(), svgSpritePlugin(), imageOptimizerPlugin()],
+  build: buildConfig,
 });
