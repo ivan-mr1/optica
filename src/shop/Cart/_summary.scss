@@ -1,0 +1,58 @@
+@use './../../styles/helpers/' as *;
+
+.summary {
+  padding: 30px;
+  background: #f8f8f8;
+  border-radius: 12px;
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #555555;
+  }
+
+  &__hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #dddddd;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__button {
+    width: 100%;
+    padding: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: #000000;
+    border-radius: 8px;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #333333;
+    }
+  }
+
+  &__link-back {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: underline;
+    color: #888888;
+  }
+}

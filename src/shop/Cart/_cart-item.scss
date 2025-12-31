@@ -1,1 +1,53 @@
 @use './../../styles/helpers/' as *;
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eeeeee;
+
+  &__image {
+    overflow: hidden;
+    background: #f9f9f9;
+    border-radius: 8px;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__category {
+    font-size: 14px;
+    color: #888888;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__price {
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  &__delete {
+    color: #cccccc;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #ff4d4d;
+    }
+  }
+}

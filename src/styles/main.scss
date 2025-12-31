@@ -18,6 +18,8 @@
 @use '../shop/products/products';
 @use '../shop/pagination/pagination';
 @use '../shop/cart/cart';
+@use '../shop/cart/quantity';
+@use '../shop/cart/summary';
 @use '../shop/cart/cart-item';
 @use 'blocks/page';
 @use 'blocks/common';

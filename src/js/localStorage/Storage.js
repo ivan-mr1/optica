@@ -1,11 +1,12 @@
 export default class Storage {
-  constructor(key, eventName) {
+  constructor(key, eventName, useNumbers = true) {
     this.STORAGE_KEY = key;
     this.EVENT_NAME = eventName;
+    this.useNumbers = useNumbers;
     this.initTabSync();
   }
 
-  // Следит за изменениями в localStorage из других вкладок и обновляет текущую
+  // Следит за изменениями из других вкладок
   initTabSync() {
     window.addEventListener('storage', (e) => {
       if (e.key === this.STORAGE_KEY && this.EVENT_NAME) {
@@ -14,14 +15,17 @@ export default class Storage {
     });
   }
 
-  // Создает кастомное событие для мгновенного обновления интерфейса
   #notify() {
     if (this.EVENT_NAME) {
       document.dispatchEvent(new CustomEvent(this.EVENT_NAME));
     }
   }
 
-  // Извлекает данные из localStorage и возвращает массив
+  // подготовка ID
+  #prepareId(id) {
+    return this.useNumbers ? Number(id) : id;
+  }
+
   get() {
     try {
       const data = localStorage.getItem(this.STORAGE_KEY);
@@ -32,13 +36,6 @@ export default class Storage {
     }
   }
 
-  // Проверяет, содержится ли конкретный ID в хранилище (возвращает true/false)
-  check(id) {
-    const data = this.get();
-    return data.includes(Number(id));
-  }
-
-  // Записывает массив данных в localStorage и уведомляет систему об изменениях
   set(value = []) {
     try {
       localStorage.setItem(this.STORAGE_KEY, JSON.stringify(value));
@@ -48,18 +45,21 @@ export default class Storage {
     }
   }
 
-  // Добавляет ID в конец массива (разрешает дубликаты для корзины)
+  check(id) {
+    const numericId = this.#prepareId(id);
+    return this.get().includes(numericId);
+  }
+
   add(id) {
     const data = this.get();
-    data.push(Number(id));
+    data.push(this.#prepareId(id));
     this.set(data);
   }
 
-  // Находит и удаляет только первое совпадение ID (уменьшает количество на 1)
   removeOne(id) {
-    const numericId = Number(id);
+    const targetId = this.#prepareId(id);
     const data = this.get();
-    const index = data.indexOf(numericId);
+    const index = data.indexOf(targetId);
 
     if (index !== -1) {
       data.splice(index, 1);
@@ -67,21 +67,19 @@ export default class Storage {
     }
   }
 
-  // Удаляет все вхождения данного ID из массива (полная очистка товара)
   remove(id) {
-    const numericId = Number(id);
-    const data = this.get().filter((item) => Number(item) !== numericId);
+    const targetId = this.#prepareId(id);
+    const data = this.get().filter((item) => item !== targetId);
     this.set(data);
   }
 
-  // Добавляет ID, если его нет, и удаляет, если он уже присутствует
   toggle(id) {
-    const numericId = Number(id);
+    const targetId = this.#prepareId(id);
     const data = this.get();
-    const index = data.indexOf(numericId);
+    const index = data.indexOf(targetId);
 
     if (index === -1) {
-      data.push(numericId);
+      data.push(targetId);
     } else {
       data.splice(index, 1);
     }
@@ -90,13 +88,11 @@ export default class Storage {
     return data;
   }
 
-  // Полностью удаляет ключ из localStorage и обновляет состояние системы
   clear() {
     localStorage.removeItem(this.STORAGE_KEY);
     this.#notify();
   }
 
-  // Проверяет строку на валидный JSON и всегда возвращает массив
   safeParse(value) {
     try {
       const parsed = JSON.parse(value);

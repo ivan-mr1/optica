@@ -356,27 +356,8 @@
                         class="cart-item__delete"
                         aria-label="Видалити товар"
                       >
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M15.8333 4.16666L4.16666 15.8333"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                          <path
-                            d="M4.16666 4.16666L15.8333 15.8333"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
+                        <svg class="svg svg--20">
+                          <use xlink:href="#icon-monochrome-trash"></use>
                         </svg>
                       </button>
                     </div>
@@ -397,8 +378,8 @@
                 <hr class="summary__hr" />
                 <div class="summary__total">
                   <span>Загальна сума:</span>
-                  <span class="summary__total-price"
-                    ><span data-cart-total-price>2 500</span> грн</span
+                  <span class="summary__total-price">
+                    <span data-cart-total-price>2 500</span> грн</span
                   >
                 </div>
                 <button type="button" class="summary__button button">
