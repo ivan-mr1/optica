@@ -10,13 +10,13 @@ export default class CartView {
 
   defaultClasses = {
     item: 'cart-item',
-    itemImage: 'cart-item__image', // Исправлено на __
+    itemImage: 'cart-item__image',
     itemImg: 'cart-item__img',
     itemInfo: 'cart-item__info',
-    itemName: 'cart-item__name',
-    itemArticle: 'cart-item__article', // Добавлено
+    itemName: 'cart-item__title',
+    itemArticle: 'cart-item__article',
     itemActions: 'cart-item__actions',
-    quantity: 'cart-item__quantity', // Уточнено для Grid
+    quantity: 'cart-item__quantity',
     quantityBtn: 'quantity__button',
     quantityInput: 'quantity__input',
     priceBlock: 'cart-item__price-block',
@@ -28,7 +28,7 @@ export default class CartView {
   defaultI18n = {
     emptyCart: 'Ваш кошик порожній',
     currency: 'грн',
-    articleLabel: 'Артикул:', // Добавлено
+    articleLabel: 'Артикул:',
     deleteLabel: 'Видалити товар',
     minusLabel: 'Зменшити кількість',
     plusLabel: 'Збільшити кількість',
@@ -74,7 +74,6 @@ export default class CartView {
   updateTotalDisplay(total) {
     const formatted = this.formatter.format(total);
     this.totalPriceElements.forEach((el) => {
-      // Используем &nbsp; для неразрывного пробела перед валютой
       el.innerHTML = `${formatted}&nbsp;${this.i18n.currency}`;
     });
   }

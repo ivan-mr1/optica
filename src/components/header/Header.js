@@ -3,16 +3,19 @@ class Header {
     root: '[data-header]',
     menu: '[data-header-menu]',
     burgerButton: '[data-header-burger-btn]',
-    overlay: '.header__overlay',
+    overlay: '[data-header-overlay]',
   };
 
   stateClasses = {
     isActive: 'is-active',
     isLock: 'lock',
+    isScrolled: 'scroll',
+    isHidden: 'is-hidden',
   };
 
   constructor() {
     this.rootElement = document.querySelector(this.selectors.root);
+
     if (!this.rootElement) {
       return;
     }
@@ -25,9 +28,19 @@ class Header {
       this.selectors.overlay,
     );
 
+    this.isMenuOpen = false;
+    this.lastScrollY = window.scrollY;
+
+    this.init();
+  }
+
+  init() {
+    this.setHeightProperty();
+    this.handleScroll();
     this.bindEvents();
 
-    this.setHeightProperty();
+    this.resizeObserver = new ResizeObserver(() => this.setHeightProperty());
+    this.resizeObserver.observe(this.rootElement);
   }
 
   setHeightProperty = () => {
@@ -38,30 +51,58 @@ class Header {
     );
   };
 
-  updateAccessibility(isOpen) {
-    this.burgerButtonElement.setAttribute('aria-expanded', isOpen);
-    document.body.classList.toggle(this.stateClasses.isLock, isOpen);
-  }
+  handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    const headerHeight = this.rootElement.offsetHeight;
+
+    this.rootElement.classList.toggle(
+      this.stateClasses.isScrolled,
+      currentScrollY > 0,
+    );
+
+    if (!this.isMenuOpen && currentScrollY > headerHeight) {
+      if (currentScrollY > this.lastScrollY) {
+        this.rootElement.classList.add(this.stateClasses.isHidden);
+      } else {
+        this.rootElement.classList.remove(this.stateClasses.isHidden);
+      }
+    } else {
+      this.rootElement.classList.remove(this.stateClasses.isHidden);
+    }
+
+    this.lastScrollY = currentScrollY;
+  };
+
+  toggleMenu = () => {
+    this.isMenuOpen ? this.closeMenu() : this.openMenu();
+  };
 
   openMenu() {
-    this.burgerButtonElement.classList.add(this.stateClasses.isActive);
-    this.menuElement.classList.add(this.stateClasses.isActive);
-    this.updateAccessibility(true);
+    this.isMenuOpen = true;
+    this.burgerButtonElement?.classList.add(this.stateClasses.isActive);
+    this.menuElement?.classList.add(this.stateClasses.isActive);
+    this.burgerButtonElement?.setAttribute('aria-expanded', 'true');
+    document.body.classList.add(this.stateClasses.isLock);
+
+    this.rootElement.classList.remove(this.stateClasses.isHidden);
+
     document.addEventListener('keydown', this.onEscapePress);
   }
 
   closeMenu() {
-    this.burgerButtonElement.classList.remove(this.stateClasses.isActive);
-    this.menuElement.classList.remove(this.stateClasses.isActive);
-    this.updateAccessibility(false);
+    this.isMenuOpen = false;
+    this.burgerButtonElement?.classList.remove(this.stateClasses.isActive);
+    this.menuElement?.classList.remove(this.stateClasses.isActive);
+    this.burgerButtonElement?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove(this.stateClasses.isLock);
+
     document.removeEventListener('keydown', this.onEscapePress);
   }
 
-  toggleMenu = () => {
-    const isOpen = this.menuElement.classList.contains(
-      this.stateClasses.isActive,
-    );
-    isOpen ? this.closeMenu() : this.openMenu();
+  onMenuLinkClick = (event) => {
+    if (event.target.closest('a')) {
+      this.closeMenu();
+    }
   };
 
   onEscapePress = (e) => {
@@ -76,33 +117,20 @@ class Header {
     }
   };
 
-  onMenuClick = (event) => {
-    const target = event.target;
-    if (target.closest('a') || target.closest('button')) {
-      this.closeMenu();
-    }
-  };
-
   bindEvents() {
-    if (!this.burgerButtonElement || !this.menuElement) {
-      return;
-    }
-
-    this.burgerButtonElement.addEventListener('click', this.toggleMenu);
-    this.menuElement.addEventListener('click', this.onMenuClick);
-
-    window.addEventListener('resize', this.setHeightProperty);
-
-    if (this.overlayElement) {
-      this.overlayElement.addEventListener('click', this.onOverlayClick);
-    }
+    this.burgerButtonElement?.addEventListener('click', this.toggleMenu);
+    this.menuElement?.addEventListener('click', this.onMenuLinkClick);
+    this.overlayElement?.addEventListener('click', this.onOverlayClick);
+    window.addEventListener('scroll', this.handleScroll, { passive: true });
   }
 
   destroy() {
-    this.burgerButtonElement.removeEventListener('click', this.toggleMenu);
-    this.menuElement.removeEventListener('click', this.onMenuClick);
+    this.burgerButtonElement?.removeEventListener('click', this.toggleMenu);
+    this.menuElement?.removeEventListener('click', this.onMenuLinkClick);
+    this.overlayElement?.removeEventListener('click', this.onOverlayClick);
+    window.removeEventListener('scroll', this.handleScroll);
     document.removeEventListener('keydown', this.onEscapePress);
-    window.removeEventListener('resize', this.setHeightProperty);
+    this.resizeObserver?.disconnect();
   }
 }
 

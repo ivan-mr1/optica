@@ -1,29 +1,29 @@
 export default function pageNavigation() {
-  const menuLinks = document.querySelectorAll('[data-goto]');
+  const header = document.querySelector('header');
 
-  if (menuLinks.length > 0) {
-    menuLinks.forEach((link) => {
-      link.addEventListener('click', (e) => {
-        const menuLink = e.target.closest('[data-goto]');
-        if (
-          menuLink.dataset.goto &&
-          document.querySelector(menuLink.dataset.goto)
-        ) {
-          e.preventDefault();
+  document.addEventListener('click', (e) => {
+    const menuLink = e.target.closest('[data-goto]');
 
-          const goToBlock = document.querySelector(menuLink.dataset.goto);
+    if (!menuLink) {
+      return;
+    }
 
-          const goToBlockValue =
-            goToBlock.getBoundingClientRect().top +
-            window.pageYOffset -
-            (document.querySelector('header')?.offsetHeight || 0);
+    const targetSelector = menuLink.dataset.goto;
+    const targetBlock = document.querySelector(targetSelector);
 
-          window.scrollTo({
-            top: goToBlockValue,
-            behavior: 'smooth',
-          });
-        }
+    if (targetBlock) {
+      e.preventDefault();
+
+      const headerHeight = header ? header.offsetHeight : 0;
+
+      const targetPosition =
+        targetBlock.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = targetPosition - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
       });
-    });
-  }
+    }
+  });
 }

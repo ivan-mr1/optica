@@ -1,126 +1,75 @@
 @use '../../styles/helpers/' as *;
 
-$iconMenuColor: #000000; // burger button
+.burger-button {
+  --burger-button-color-line: var(--color-white);
+  --burger-button-color-hover: #ffa501;
 
-/* 
-.icon-menu {
-	display: none;
-	@media (max-width: em(767.98)) {
-		display: block;
-		position: relative;
-		width: rem(30);
-		flex: 0 0 rem(30);
-		height: rem(18);
-		z-index: 5;
-		@media (any-hover: none) {
-			cursor: default;
-		}
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: $iconMenuColor;
-		}
-		&::before {
-			top: 0;
-		}
-		&::after {
-			bottom: 0;
-		}
-		span {
-			top: calc(50% - rem(1));
-		}
-	}
-}
-.icon-menu.menu-open {
-	@media (max-width:em(767.98)){
-		span,
-		&::before,
-		&::after {
-			background-color: $iconMenuColor;
-		}
-		span {
-			width: 0;
-		}
-		&::before {
-			top: calc(50% - rem(1));
-			transform: rotate(-45deg);
-		}
-		&::after {
-			bottom: calc(50% - rem(1));
-			transform: rotate(45deg);
-		}
-	}
-} */
-
-// Burger second version
-
-/* .icon-menu {
   display: none;
 
   @media (max-width: em(767.98)) {
     position: relative;
-    z-index: 5;
-    display: block;
-    inline-size: rem(48);
-    block-size: rem(48);
+    z-index: 20; // Выше оверлея и меню
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 1px solid var(--burger-button-color-line);
+    border-radius: 0.5rem;
+    transition: background-color 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    span,
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      background-color: $iconMenuColor;
-      border-radius: rem(4);
-      transition: all 0.3s ease 0s;
-      block-size: rem(4);
+    @include hover {
+      background-color: var(--burger-button-color-hover);
     }
 
-    &::before,
-    &::after {
-      inline-size: rem(15);
+    &__inner {
+      flex: 0 0 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: 1.5rem;
     }
 
-    span {
-      inset-inline-start: 50%;
-      inset-block-start: 50%;
-      transform: translate(-50%, -50%);
-      inline-size: rem(28);
+    &__line {
+      width: 100%;
+      height: 0.2188rem;
+      background-color: var(--burger-button-color-line);
+      border-radius: 0.5rem;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transform-origin: center;
+
+      &:first-child {
+        width: 60%;
+      }
+
+      &:nth-child(2) {
+        width: 80%;
+      }
     }
 
-    &::before {
-      inset-inline-start: rem(10);
-      inset-block-start: rem(14);
-    }
+    &.is-active {
+      .burger-button__inner {
+        transform: rotate(180deg);
+      }
 
-    &::after {
-      inset-inline-end: rem(10);
-      inset-block-end: rem(14);
+      .burger-button__line {
+        &:nth-child(2) {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+
+        &:first-child {
+          width: 100%;
+          transform: translateY(0.625rem) rotate(45deg);
+        }
+
+        &:last-child {
+          width: 100%;
+          transform: translateY(-0.6687rem) rotate(-45deg);
+        }
+      }
     }
   }
 }
-
-.icon-menu.menu-open {
-  span {
-    transform: translate(-50%, -50%) rotate(-45deg);
-    inline-size: rem(33);
-  }
-
-  &::before {
-    transform: translate(0, 1px) rotate(45deg);
-  }
-
-  &::after {
-    transform: translate(0, -2px) rotate(45deg);
-  }
-} */
-
-/* 
-<button type="button" class="icon-menu" aria-label="Open menu" title="Open menu">
-  <span></span>
-</button> */

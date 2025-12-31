@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="optica store" />
-    <title>Optica</title>
+    <meta
+      name="description"
+      content="Магазин сучасної оптики: широкий вибір стильних оправ, сонцезахисних окулярів та контактних лінз. Професійна перевірка зору та виготовлення окулярів будь-якої складності."
+    />
+
+    <title>Оптика — Магазин окулярів та аксесуарів | Перевірка зору</title>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -31,27 +35,18 @@
     <div class="wrapper">
       <header class="header" data-header data-right-padding>
         <div class="header__container">
-          <a href="/" class="logo header__logo">Optica</a>
-          <div class="header__overlay">
+          <a href="index.html" class="logo header__logo">Optica</a>
+          <div data-header-overlay class="header__overlay">
             <nav class="header__menu menu" data-header-menu>
               <ul class="menu__list">
                 <li class="menu__item">
-                  <a href="#" class="menu__link hover-link" data-goto=".about"
-                    >ПРО НАС</a
-                  >
+                  <a href="#about" class="menu__link hover-link">ПРО НАС</a>
                 </li>
                 <li class="menu__item">
-                  <a
-                    href="#"
-                    class="menu__link hover-link"
-                    data-goto=".products"
-                    >ПРОДУКТИ</a
-                  >
+                  <a href="#products" class="menu__link hover-link">ПРОДУКТИ</a>
                 </li>
                 <li class="menu__item">
-                  <a href="#" class="menu__link hover-link" data-goto=".footer"
-                    >КОНТАКТИ</a
-                  >
+                  <a href="#footer" class="menu__link hover-link">КОНТАКТИ</a>
                 </li>
               </ul>
               <div class="header__soc1al soc1al visible-mobile">
@@ -142,11 +137,9 @@
               </div>
               <a
                 href="cart.html"
-                target="_blank"
-                rel="noopener"
                 class="header__action header__cart counter-icon"
-                aria-label="Open card"
-                title="Open card"
+                aria-label="Open cart"
+                title="Open cart"
               >
                 <span class="counter-icon__inner">
                   <svg class="svg svg--40">
@@ -200,7 +193,7 @@
             </div>
           </div>
           <video class="video-fon" autoplay muted loop>
-            <source type="video/mp4" src="assets/video/6.mp4" />
+            <source type="video/mp4" src="assets/video/10.mp4" />
           </video>
           <button
             type="button"
@@ -235,7 +228,11 @@
           </button>
         </section>
 
-        <section class="page__about about" aria-labelledby="about-title">
+        <section
+          id="about"
+          class="page__about about"
+          aria-labelledby="about-title"
+        >
           <div
             class="scroller descr__scroller"
             data-direction="left"
@@ -322,6 +319,7 @@
         </section>
 
         <section
+          id="products"
           class="page__products products"
           aria-labelledby="products-title"
         >
@@ -379,7 +377,7 @@
           </div>
         </section>
       </main>
-      <footer class="footer">
+      <footer id="footer" class="footer">
         <div class="footer__container">
           <div class="footer__header">
             <h2 class="footer__title">Будемо раді вашому зверненню</h2>

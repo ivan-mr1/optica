@@ -1,7 +1,7 @@
+@use 'variables';
 @use 'reset';
 @use 'svg';
 @use 'fonts/fonts';
-@use 'variables';
 @use 'utils';
 @use 'globals';
 @use 'helpers-classes';
@@ -21,6 +21,8 @@
 @use '../shop/cart/quantity';
 @use '../shop/cart/summary';
 @use '../shop/cart/cart-item';
+
+//  Page Blocks
 @use 'blocks/page';
 @use 'blocks/common';
 @use 'blocks/header';
