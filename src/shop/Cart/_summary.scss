@@ -1,58 +1,67 @@
 @use './../../styles/helpers/' as *;
 
 .summary {
-  padding: 30px;
+  padding-block: 30px;
+  padding-inline: fluid(30, 10);
   background: #f8f8f8;
   border-radius: 12px;
 
   &__title {
-    margin-bottom: 20px;
-    font-size: 20px;
+    font-size: rem(18);
+    font-weight: 600;
+
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  &__conter-items {
+    font-weight: 600;
+  }
+
+  &__top {
+    border-bottom: 1px solid #888888;
   }
 
   &__row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    align-items: center;
+    margin-bottom: 1rem;
     color: #555555;
   }
 
-  &__hr {
-    margin: 20px 0;
-    border: none;
-    border-top: 1px solid #dddddd;
+  &__right {
+    margin-left: auto;
+    text-align: right;
   }
 
   &__total {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   &__button {
     width: 100%;
-    padding: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #ffffff;
-    background: #000000;
-    border-radius: 8px;
-    transition: background 0.3s;
+    max-width: 290px;
 
-    &:hover {
-      background: #333333;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
     }
   }
 
   &__link-back {
     display: block;
-    margin-top: 15px;
-    font-size: 14px;
-    text-align: center;
-    text-decoration: underline;
-    color: #888888;
+
+    // text-align: center;
+
+    @include hover {
+      color: var(--color-orange);
+    }
   }
 }
