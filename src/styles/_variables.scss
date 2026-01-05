@@ -4,6 +4,7 @@
   --scrollbar-width: 0rem;
   --z-index-header: 50;
   --z-index-scroll-up: 10;
+  --z-index-dropdown: 100;
   --z-index-popup: 150;
   --z-body-after: 149;
 
@@ -33,5 +34,5 @@
   --color-bcg-body: #f3f9ff;
 
   --border: 1px solid var(--color-white);
-  --border-radius: #{rem(8)};
+  --border-radius: #{rem(5)};
 }

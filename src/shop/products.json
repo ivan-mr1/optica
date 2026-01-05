@@ -1,7 +1,7 @@
 [
   {
     "category": "glasses for vision",
-    "id": "g1",
+    "id": 1,
     "image": "assets/img/products/glasses-for-vision/1.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -10,7 +10,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g2",
+    "id": 2,
     "image": "assets/img/products/glasses-for-vision/2.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -19,7 +19,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g3",
+    "id": 3,
     "image": "assets/img/products/glasses-for-vision/3.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -28,7 +28,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g4",
+    "id": 4,
     "image": "assets/img/products/glasses-for-vision/4.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -37,7 +37,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g5",
+    "id": 5,
     "image": "assets/img/products/glasses-for-vision/5.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -46,7 +46,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g6",
+    "id": 6,
     "image": "assets/img/products/glasses-for-vision/6.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -55,7 +55,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g7",
+    "id": 7,
     "image": "assets/img/products/glasses-for-vision/7.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -64,7 +64,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g8",
+    "id": 8,
     "image": "assets/img/products/glasses-for-vision/8.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -73,7 +73,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "9",
+    "id": 9,
     "image": "assets/img/products/glasses-for-vision/9.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -82,7 +82,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g10",
+    "id": 10,
     "image": "assets/img/products/glasses-for-vision/10.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -91,7 +91,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g11",
+    "id": 11,
     "image": "assets/img/products/glasses-for-vision/11.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -100,7 +100,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g12",
+    "id": 12,
     "image": "assets/img/products/glasses-for-vision/12.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -109,7 +109,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g13",
+    "id": 13,
     "image": "assets/img/products/glasses-for-vision/13.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -118,7 +118,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g14",
+    "id": 14,
     "image": "assets/img/products/glasses-for-vision/14.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -127,7 +127,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g15",
+    "id": 15,
     "image": "assets/img/products/glasses-for-vision/15.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -136,7 +136,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g16",
+    "id": 16,
     "image": "assets/img/products/glasses-for-vision/16.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -145,7 +145,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g17",
+    "id": 17,
     "image": "assets/img/products/glasses-for-vision/17.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -154,7 +154,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g18",
+    "id": 18,
     "image": "assets/img/products/glasses-for-vision/18.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -163,7 +163,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g19",
+    "id": 19,
     "image": "assets/img/products/glasses-for-vision/19.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -172,7 +172,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g20",
+    "id": 20,
     "image": "assets/img/products/glasses-for-vision/20.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -181,7 +181,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g21",
+    "id": 21,
     "image": "assets/img/products/glasses-for-vision/21.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -190,7 +190,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g22",
+    "id": 22,
     "image": "assets/img/products/glasses-for-vision/22.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -199,7 +199,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g23",
+    "id": 23,
     "image": "assets/img/products/glasses-for-vision/23.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -208,7 +208,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g24",
+    "id": 24,
     "image": "assets/img/products/glasses-for-vision/24.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -217,7 +217,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g25",
+    "id": 25,
     "image": "assets/img/products/glasses-for-vision/25.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -226,7 +226,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g26",
+    "id": 26,
     "image": "assets/img/products/glasses-for-vision/26.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -235,7 +235,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g27",
+    "id": 27,
     "image": "assets/img/products/glasses-for-vision/27.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -244,7 +244,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g28",
+    "id": 28,
     "image": "assets/img/products/glasses-for-vision/28.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -253,7 +253,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g29",
+    "id": 29,
     "image": "assets/img/products/glasses-for-vision/29.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -262,7 +262,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g30",
+    "id": 30,
     "image": "assets/img/products/glasses-for-vision/30.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -271,7 +271,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g31",
+    "id": 31,
     "image": "assets/img/products/glasses-for-vision/31.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -280,7 +280,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g32",
+    "id": 32,
     "image": "assets/img/products/glasses-for-vision/32.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -289,7 +289,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g33",
+    "id": 33,
     "image": "assets/img/products/glasses-for-vision/33.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -298,7 +298,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g34",
+    "id": 34,
     "image": "assets/img/products/glasses-for-vision/34.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -307,7 +307,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g35",
+    "id": 35,
     "image": "assets/img/products/glasses-for-vision/35.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -316,7 +316,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g36",
+    "id": 36,
     "image": "assets/img/products/glasses-for-vision/36.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -325,7 +325,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g37",
+    "id": 37,
     "image": "assets/img/products/glasses-for-vision/37.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -334,7 +334,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g38",
+    "id": 38,
     "image": "assets/img/products/glasses-for-vision/38.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -343,7 +343,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g39",
+    "id": 39,
     "image": "assets/img/products/glasses-for-vision/39.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -352,7 +352,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g40",
+    "id": 40,
     "image": "assets/img/products/glasses-for-vision/40.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -361,7 +361,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g41",
+    "id": 41,
     "image": "assets/img/products/glasses-for-vision/41.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -370,7 +370,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g42",
+    "id": 42,
     "image": "assets/img/products/glasses-for-vision/42.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -379,7 +379,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g43",
+    "id": 43,
     "image": "assets/img/products/glasses-for-vision/43.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -388,7 +388,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g44",
+    "id": 44,
     "image": "assets/img/products/glasses-for-vision/44.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -397,7 +397,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g45",
+    "id": 45,
     "image": "assets/img/products/glasses-for-vision/45.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -406,7 +406,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g46",
+    "id": 46,
     "image": "assets/img/products/glasses-for-vision/46.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -415,7 +415,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g47",
+    "id": 47,
     "image": "assets/img/products/glasses-for-vision/47.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -424,7 +424,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g48",
+    "id": 48,
     "image": "assets/img/products/glasses-for-vision/48.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -433,7 +433,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g49",
+    "id": 49,
     "image": "assets/img/products/glasses-for-vision/49.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -442,7 +442,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g50",
+    "id": 50,
     "image": "assets/img/products/glasses-for-vision/50.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -451,7 +451,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g51",
+    "id": 51,
     "image": "assets/img/products/glasses-for-vision/51.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -460,7 +460,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g52",
+    "id": 52,
     "image": "assets/img/products/glasses-for-vision/52.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -469,7 +469,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g53",
+    "id": 53,
     "image": "assets/img/products/glasses-for-vision/53.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -478,7 +478,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g54",
+    "id": 54,
     "image": "assets/img/products/glasses-for-vision/54.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -487,7 +487,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g55",
+    "id": 55,
     "image": "assets/img/products/glasses-for-vision/55.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -496,7 +496,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g56",
+    "id": 56,
     "image": "assets/img/products/glasses-for-vision/56.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -505,7 +505,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g57",
+    "id": 57,
     "image": "assets/img/products/glasses-for-vision/57.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -514,7 +514,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g58",
+    "id": 58,
     "image": "assets/img/products/glasses-for-vision/58.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -523,7 +523,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g59",
+    "id": 59,
     "image": "assets/img/products/glasses-for-vision/59.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -532,7 +532,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g60",
+    "id": 60,
     "image": "assets/img/products/glasses-for-vision/60.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -541,7 +541,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g61",
+    "id": 61,
     "image": "assets/img/products/glasses-for-vision/61.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -550,7 +550,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g62",
+    "id": 62,
     "image": "assets/img/products/glasses-for-vision/62.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -559,7 +559,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g63",
+    "id": 63,
     "image": "assets/img/products/glasses-for-vision/63.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -568,7 +568,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g64",
+    "id": 64,
     "image": "assets/img/products/glasses-for-vision/64.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -577,7 +577,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g65",
+    "id": 65,
     "image": "assets/img/products/glasses-for-vision/65.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -586,7 +586,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g66",
+    "id": 66,
     "image": "assets/img/products/glasses-for-vision/66.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -595,7 +595,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g67",
+    "id": 67,
     "image": "assets/img/products/glasses-for-vision/67.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -604,7 +604,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g68",
+    "id": 68,
     "image": "assets/img/products/glasses-for-vision/68.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -613,7 +613,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g69",
+    "id": 69,
     "image": "assets/img/products/glasses-for-vision/69.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -622,7 +622,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g70",
+    "id": 70,
     "image": "assets/img/products/glasses-for-vision/70.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -631,7 +631,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g71",
+    "id": 71,
     "image": "assets/img/products/glasses-for-vision/71.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -640,7 +640,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g72",
+    "id": 72,
     "image": "assets/img/products/glasses-for-vision/72.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -649,7 +649,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g73",
+    "id": 73,
     "image": "assets/img/products/glasses-for-vision/73.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -658,7 +658,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g74",
+    "id": 74,
     "image": "assets/img/products/glasses-for-vision/74.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -667,7 +667,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g75",
+    "id": 75,
     "image": "assets/img/products/glasses-for-vision/75.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -676,7 +676,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g76",
+    "id": 76,
     "image": "assets/img/products/glasses-for-vision/76.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -685,7 +685,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g77",
+    "id": 77,
     "image": "assets/img/products/glasses-for-vision/77.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -694,7 +694,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g78",
+    "id": 78,
     "image": "assets/img/products/glasses-for-vision/78.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -703,7 +703,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g79",
+    "id": 79,
     "image": "assets/img/products/glasses-for-vision/79.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -712,7 +712,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g80",
+    "id": 80,
     "image": "assets/img/products/glasses-for-vision/80.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -721,7 +721,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g81",
+    "id": 81,
     "image": "assets/img/products/glasses-for-vision/81.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -730,7 +730,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g82",
+    "id": 82,
     "image": "assets/img/products/glasses-for-vision/82.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -739,7 +739,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g83",
+    "id": 83,
     "image": "assets/img/products/glasses-for-vision/83.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -748,7 +748,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g84",
+    "id": 84,
     "image": "assets/img/products/glasses-for-vision/84.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -757,7 +757,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g85",
+    "id": 85,
     "image": "assets/img/products/glasses-for-vision/85.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -766,7 +766,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g86",
+    "id": 86,
     "image": "assets/img/products/glasses-for-vision/86.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -775,7 +775,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g87",
+    "id": 87,
     "image": "assets/img/products/glasses-for-vision/87.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -784,7 +784,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g88",
+    "id": 88,
     "image": "assets/img/products/glasses-for-vision/88.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -793,7 +793,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g89",
+    "id": 89,
     "image": "assets/img/products/glasses-for-vision/89.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -802,7 +802,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g90",
+    "id": 90,
     "image": "assets/img/products/glasses-for-vision/90.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -811,7 +811,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g91",
+    "id": 91,
     "image": "assets/img/products/glasses-for-vision/91.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -820,7 +820,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g92",
+    "id": 92,
     "image": "assets/img/products/glasses-for-vision/92.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
@@ -829,7 +829,7 @@
   },
   {
     "category": "glasses for vision",
-    "id": "g93",
+    "id": 93,
     "image": "assets/img/products/glasses-for-vision/93.webp",
     "description": "description model glasses for vision",
     "model": "glasses for vision with UV protection 1",
