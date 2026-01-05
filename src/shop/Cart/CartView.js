@@ -1,11 +1,14 @@
+import { formatPrice } from '../utils.js';
+import { I18N, ATTRIBUTES, SELECTORS } from '../constants.js';
+
 export default class CartView {
   defaultSelectors = {
-    list: '[data-cart-list]',
-    totalPrice: '[data-cart-total-price]',
-    productId: 'data-product-id',
-    btnMinus: 'data-cart-minus',
-    btnPlus: 'data-cart-plus',
-    btnRemove: 'data-cart-remove-btn',
+    list: SELECTORS.CART_LIST,
+    totalPrice: SELECTORS.CART_TOTAL_PRICE,
+    productId: ATTRIBUTES.PRODUCT_ID,
+    btnMinus: ATTRIBUTES.CART.MINUS,
+    btnPlus: ATTRIBUTES.CART.PLUS,
+    btnRemove: ATTRIBUTES.CART.REMOVE,
   };
 
   defaultClasses = {
@@ -26,12 +29,12 @@ export default class CartView {
   };
 
   defaultI18n = {
-    emptyCart: 'Ваш кошик порожній',
-    currency: 'грн',
-    articleLabel: 'Артикул:',
-    deleteLabel: 'Видалити товар',
-    minusLabel: 'Зменшити кількість',
-    plusLabel: 'Збільшити кількість',
+    emptyCart: I18N.EMPTY_CART,
+    currency: I18N.CURRENCY,
+    articleLabel: I18N.ARTICLE,
+    deleteLabel: I18N.DELETE_ITEM,
+    minusLabel: I18N.DECREASE_QUANTITY,
+    plusLabel: I18N.INCREASE_QUANTITY,
     iconTrash: `
       <svg class="svg svg--20">
         <use xlink:href="#icon-monochrome-trash"></use>
@@ -39,13 +42,12 @@ export default class CartView {
     `,
   };
 
-  constructor(options = {}, settings = {}, formatter = null) {
+  constructor(options = {}, settings = {}) {
     this.selectors = { ...this.defaultSelectors, ...options.selectors };
     this.classes = { ...this.defaultClasses, ...options.classes };
     this.i18n = { ...this.defaultI18n, ...options.i18n };
 
     this.settings = settings;
-    this.formatter = formatter || new Intl.NumberFormat('uk-UA');
 
     this.container = document.querySelector(this.selectors.list);
     this.totalPriceElements = document.querySelectorAll(
@@ -72,7 +74,7 @@ export default class CartView {
   }
 
   updateTotalDisplay(total) {
-    const formatted = this.formatter.format(total);
+    const formatted = formatPrice(total);
     this.totalPriceElements.forEach((el) => {
       el.innerHTML = `${formatted}&nbsp;${this.i18n.currency}`;
     });
@@ -106,7 +108,7 @@ export default class CartView {
         </div>
         <div class="${c.itemActions}">
           <div class="${c.priceBlock}">
-            <span class="${c.price}">${this.formatter.format(price * count)}&nbsp;${t.currency}</span>
+            <span class="${c.price}">${formatPrice(price * count)}&nbsp;${t.currency}</span>
           </div>
           <div class="${c.quantity} quantity">
             <button

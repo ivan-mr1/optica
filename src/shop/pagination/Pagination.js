@@ -1,31 +1,32 @@
+import { I18N, ATTRIBUTES, STATES } from '../constants.js';
+
 /**
- * Класс Pagination с трехуровневой адаптивностью:
- * > 768px: широкий диапазон (visibleRange: 2)
- * 370px - 768px: компактный диапазон (visibleRange: 1)
- * < 370px: экстремально компактный (visibleRange: 0)
+ * > 768px: (visibleRange: 2)
+ * 370px - 768px: (visibleRange: 1)
+ * < 370px: (visibleRange: 0)
  */
 export default class Pagination {
   defaultSelectors = {
-    pagination: '[data-pagination]',
-    paginationList: '[data-pagination-list]',
-    btnPrev: '[data-pagination-btn-prev]',
-    btnNext: '[data-pagination-btn-next]',
+    pagination: ATTRIBUTES.PAGINATION.ROOT,
+    paginationList: ATTRIBUTES.PAGINATION.LIST,
+    btnPrev: ATTRIBUTES.PAGINATION.PREV,
+    btnNext: ATTRIBUTES.PAGINATION.NEXT,
     pageItem: '.pagination__item',
   };
 
   defaultClasses = {
-    active: 'is-active',
-    hidden: 'is-hidden',
+    active: STATES.ACTIVE,
+    hidden: STATES.HIDDEN,
     item: 'pagination__item',
     separator: 'pagination__separator',
   };
 
   defaultI18n = {
-    prev: 'Попередня сторінка',
-    next: 'Наступна сторінка',
-    page: 'Сторінка',
-    current: 'Поточна сторінка',
-    paginationLabel: 'Пагінація товарів',
+    prev: I18N.PREV_PAGE,
+    next: I18N.NEXT_PAGE,
+    page: I18N.PAGE,
+    current: I18N.CURRENT_PAGE,
+    paginationLabel: I18N.PAGINATION_LABEL,
   };
 
   constructor(renderListInstance, products = [], options = {}) {
@@ -73,7 +74,7 @@ export default class Pagination {
   }
 
   /**
-   * Умная адаптивность под разные размеры экрана
+   * адаптивность под разные размеры экрана
    */
   #initAdaptive() {
     const updateRange = () => {

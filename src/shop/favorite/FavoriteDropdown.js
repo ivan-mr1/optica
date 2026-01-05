@@ -1,12 +1,14 @@
+import { EVENTS, STATES, ATTRIBUTES } from '../constants.js';
+
 export default class FavoriteDropdown {
   selectors = {
-    root: '[data-favorite]',
-    button: '[data-favorite-btn]',
+    root: ATTRIBUTES.FAVORITE.DROPDOWN.ROOT,
+    button: ATTRIBUTES.FAVORITE.DROPDOWN.BUTTON,
     content: '.favorite__content',
   };
 
   stateClasses = {
-    active: 'is-active',
+    active: STATES.ACTIVE,
   };
 
   constructor() {
@@ -54,7 +56,7 @@ export default class FavoriteDropdown {
     document.addEventListener('click', this.handleClickOutside);
     document.addEventListener('keydown', this.handleEscClose);
 
-    this.root.dispatchEvent(new CustomEvent('favorite:opened'));
+    this.root.dispatchEvent(new CustomEvent(EVENTS.FAVORITE_OPENED));
   }
 
   close() {

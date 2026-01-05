@@ -1,5 +1,6 @@
 import CartService from '../cart/CartService.js';
 import FavoriteView from './FavoriteView.js';
+import { EVENTS } from '../constants.js';
 
 export default class FavoriteList {
   constructor(storage, allProducts, cartStorage) {
@@ -17,7 +18,7 @@ export default class FavoriteList {
   init() {
     this.refresh();
     this.initEventListeners();
-    document.addEventListener('favorite:updated', () => this.refresh());
+    document.addEventListener(EVENTS.FAVORITE_UPDATED, () => this.refresh());
   }
 
   refresh() {

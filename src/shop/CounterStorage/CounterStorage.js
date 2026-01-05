@@ -1,3 +1,5 @@
+import { STATES } from '../constants.js';
+
 export default class CounterStorage {
   constructor(counterSelector, storage, eventName) {
     this.counters = document.querySelectorAll(counterSelector);
@@ -27,9 +29,9 @@ export default class CounterStorage {
       counter.textContent = count;
 
       if (count > 0) {
-        counter.classList.remove('is-hidden');
+        counter.classList.remove(STATES.HIDDEN);
       } else {
-        counter.classList.add('is-hidden');
+        counter.classList.add(STATES.HIDDEN);
       }
     });
   }

@@ -87,7 +87,10 @@ export default function addDate() {
   }
 
   function updateDate() {
-    document.querySelector('.date').innerHTML = getUserTime(); //insert the block class where today's date should be displayed <div class="date"></div>
+    const el = document.querySelector('.date');
+    if (el) {
+      el.textContent = getUserTime(); // insert the block class where today's date should be displayed <div class="date"></div>
+    }
   }
 
   updateDate();

@@ -1,3 +1,5 @@
+import { bodyLock, bodyUnlock } from '../../js/function/bodyLock.js';
+
 class Header {
   selectors = {
     root: '[data-header]',
@@ -51,53 +53,68 @@ class Header {
     );
   };
 
+  /**
+   * Обработчик скролла страницы
+   * Управляет видимостью и состоянием header при прокрутке
+   */
   handleScroll = () => {
     const currentScrollY = window.scrollY;
     const headerHeight = this.rootElement.offsetHeight;
+    const isScrollingDown = currentScrollY > this.lastScrollY;
+    const isScrolledPastHeader = currentScrollY > headerHeight;
 
+    // Добавляем класс при любом скролле
     this.rootElement.classList.toggle(
       this.stateClasses.isScrolled,
       currentScrollY > 0,
     );
 
-    if (!this.isMenuOpen && currentScrollY > headerHeight) {
-      if (currentScrollY > this.lastScrollY) {
-        this.rootElement.classList.add(this.stateClasses.isHidden);
-      } else {
-        this.rootElement.classList.remove(this.stateClasses.isHidden);
-      }
-    } else {
-      this.rootElement.classList.remove(this.stateClasses.isHidden);
-    }
+    // Скрываем/показываем header при скролле вниз
+    const shouldHideHeader =
+      !this.isMenuOpen && isScrolledPastHeader && isScrollingDown;
+
+    this.rootElement.classList.toggle(
+      this.stateClasses.isHidden,
+      shouldHideHeader,
+    );
 
     this.lastScrollY = currentScrollY;
   };
 
+  /**
+   * Переключает состояние мобильного меню
+   */
   toggleMenu = () => {
     this.isMenuOpen ? this.closeMenu() : this.openMenu();
   };
 
-  openMenu() {
+  /**
+   * Открывает мобильное меню
+   */
+  openMenu = () => {
     this.isMenuOpen = true;
     this.burgerButtonElement?.classList.add(this.stateClasses.isActive);
     this.menuElement?.classList.add(this.stateClasses.isActive);
     this.burgerButtonElement?.setAttribute('aria-expanded', 'true');
-    document.body.classList.add(this.stateClasses.isLock);
+    bodyLock();
 
     this.rootElement.classList.remove(this.stateClasses.isHidden);
 
     document.addEventListener('keydown', this.onEscapePress);
-  }
+  };
 
-  closeMenu() {
+  /**
+   * Закрывает мобильное меню
+   */
+  closeMenu = () => {
     this.isMenuOpen = false;
     this.burgerButtonElement?.classList.remove(this.stateClasses.isActive);
     this.menuElement?.classList.remove(this.stateClasses.isActive);
     this.burgerButtonElement?.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove(this.stateClasses.isLock);
+    bodyUnlock();
 
     document.removeEventListener('keydown', this.onEscapePress);
-  }
+  };
 
   onMenuLinkClick = (event) => {
     if (event.target.closest('a')) {
@@ -124,6 +141,10 @@ class Header {
     window.addEventListener('scroll', this.handleScroll, { passive: true });
   }
 
+  /**
+   * Очищает все обработчики событий и observers
+   * Вызывается при уничтожении компонента
+   */
   destroy() {
     this.burgerButtonElement?.removeEventListener('click', this.toggleMenu);
     this.menuElement?.removeEventListener('click', this.onMenuLinkClick);

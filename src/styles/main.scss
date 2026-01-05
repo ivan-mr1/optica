@@ -21,8 +21,10 @@
 @use '../shop/cart/quantity';
 @use '../shop/cart/summary';
 @use '../shop/cart/cart-item';
-
-//  Page Blocks
+@use '../shop/favorite/favorite';
+@use '../shop/favorite/favorite-product';
+@use '../shop/product-details/product-details';
+@use '../shop/product-details/breadcrumbs';
 @use 'blocks/page';
 @use 'blocks/common';
 @use 'blocks/header';
@@ -30,5 +32,3 @@
 @use 'blocks/hero';
 @use 'blocks/about';
 @use 'blocks/partners';
-@use '../shop/favorite/favorite';
-@use '../shop/favorite/favorite-product';

@@ -1,12 +1,13 @@
 import CartService from './CartService.js';
 import CartView from './CartView.js';
+import { EVENTS, SELECTORS } from '../constants.js';
 
 export default class CartList {
   settings = { minQuantity: 1, maxQuantity: 15 };
 
   selectors = {
-    list: '[data-cart-list]',
-    totalPrice: '[data-cart-total-price]',
+    list: SELECTORS.CART_LIST,
+    totalPrice: SELECTORS.CART_TOTAL_PRICE,
   };
 
   constructor(storage, allProducts) {
@@ -14,11 +15,7 @@ export default class CartList {
 
     this.service = new CartService(allProducts);
 
-    this.view = new CartView(
-      { selectors: this.selectors },
-      this.settings,
-      new Intl.NumberFormat('uk-UA'),
-    );
+    this.view = new CartView({ selectors: this.selectors }, this.settings);
 
     if (this.view.container) {
       this.init();
@@ -28,7 +25,7 @@ export default class CartList {
   init() {
     this.refresh();
     this.initEventListeners();
-    document.addEventListener('cart:updated', () => this.refresh());
+    document.addEventListener(EVENTS.CART_UPDATED, () => this.refresh());
   }
 
   refresh() {
