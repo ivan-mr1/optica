@@ -17,7 +17,6 @@ class Header {
 
   constructor() {
     this.rootElement = document.querySelector(this.selectors.root);
-
     if (!this.rootElement) {
       return;
     }
@@ -32,6 +31,7 @@ class Header {
 
     this.isMenuOpen = false;
     this.lastScrollY = window.scrollY;
+    this.ticking = false;
 
     this.init();
   }
@@ -58,79 +58,80 @@ class Header {
    * Управляет видимостью и состоянием header при прокрутке
    */
   handleScroll = () => {
-    const currentScrollY = window.scrollY;
-    const headerHeight = this.rootElement.offsetHeight;
-    const isScrollingDown = currentScrollY > this.lastScrollY;
-    const isScrolledPastHeader = currentScrollY > headerHeight;
+    if (!this.ticking) {
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const headerHeight = this.rootElement.offsetHeight;
+        const isScrollingDown = currentScrollY > this.lastScrollY;
+        const isScrolledPastHeader = currentScrollY > headerHeight;
 
-    // Добавляем класс при любом скролле
-    this.rootElement.classList.toggle(
-      this.stateClasses.isScrolled,
-      currentScrollY > 0,
-    );
+        // Класс при любом скролле
+        this.rootElement.classList.toggle(
+          this.stateClasses.isScrolled,
+          currentScrollY > 0,
+        );
 
-    // Скрываем/показываем header при скролле вниз
-    const shouldHideHeader =
-      !this.isMenuOpen && isScrolledPastHeader && isScrollingDown;
+        // Скрываем/показываем header при скролле вниз
+        const shouldHideHeader =
+          !this.isMenuOpen && isScrolledPastHeader && isScrollingDown;
+        this.rootElement.classList.toggle(
+          this.stateClasses.isHidden,
+          shouldHideHeader,
+        );
 
-    this.rootElement.classList.toggle(
-      this.stateClasses.isHidden,
-      shouldHideHeader,
-    );
+        this.lastScrollY = currentScrollY;
+        this.ticking = false;
+      });
 
-    this.lastScrollY = currentScrollY;
+      this.ticking = true;
+    }
   };
 
   /**
    * Переключает состояние мобильного меню
    */
-  toggleMenu = () => {
-    this.isMenuOpen ? this.closeMenu() : this.openMenu();
-  };
+  toggleMenu = () => this.setMenuState(!this.isMenuOpen);
 
   /**
-   * Открывает мобильное меню
+   * Устанавливает состояние меню (открыто/закрыто)
+   * @param {boolean} isOpen
    */
-  openMenu = () => {
-    this.isMenuOpen = true;
-    this.burgerButtonElement?.classList.add(this.stateClasses.isActive);
-    this.menuElement?.classList.add(this.stateClasses.isActive);
-    this.burgerButtonElement?.setAttribute('aria-expanded', 'true');
-    bodyLock();
+  setMenuState = (isOpen) => {
+    this.isMenuOpen = isOpen;
+    this.burgerButtonElement?.classList.toggle(
+      this.stateClasses.isActive,
+      isOpen,
+    );
+    this.menuElement?.classList.toggle(this.stateClasses.isActive, isOpen);
+    this.burgerButtonElement?.setAttribute('aria-expanded', isOpen);
 
-    this.rootElement.classList.remove(this.stateClasses.isHidden);
+    isOpen ? bodyLock() : bodyUnlock();
 
-    document.addEventListener('keydown', this.onEscapePress);
-  };
+    // При открытии всегда показываем header
+    if (isOpen) {
+      this.rootElement.classList.remove(this.stateClasses.isHidden);
+    }
 
-  /**
-   * Закрывает мобильное меню
-   */
-  closeMenu = () => {
-    this.isMenuOpen = false;
-    this.burgerButtonElement?.classList.remove(this.stateClasses.isActive);
-    this.menuElement?.classList.remove(this.stateClasses.isActive);
-    this.burgerButtonElement?.setAttribute('aria-expanded', 'false');
-    bodyUnlock();
-
-    document.removeEventListener('keydown', this.onEscapePress);
+    isOpen
+      ? document.addEventListener('keydown', this.onEscapePress)
+      : document.removeEventListener('keydown', this.onEscapePress);
   };
 
   onMenuLinkClick = (event) => {
     if (event.target.closest('a')) {
-      this.closeMenu();
+      this.setMenuState(false);
     }
   };
 
   onEscapePress = (e) => {
     if (e.key === 'Escape') {
-      this.closeMenu();
+      this.setMenuState(false);
     }
   };
 
   onOverlayClick = (e) => {
     if (e.target === this.overlayElement) {
-      this.closeMenu();
+      this.setMenuState(false);
     }
   };
 
@@ -141,10 +142,6 @@ class Header {
     window.addEventListener('scroll', this.handleScroll, { passive: true });
   }
 
-  /**
-   * Очищает все обработчики событий и observers
-   * Вызывается при уничтожении компонента
-   */
   destroy() {
     this.burgerButtonElement?.removeEventListener('click', this.toggleMenu);
     this.menuElement?.removeEventListener('click', this.onMenuLinkClick);
