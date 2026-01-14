@@ -21,6 +21,7 @@ $max-width-container: $container-width + ($main-offset * 2);
 // $mobile: em(767.98);
 // $mobileSmall: em(479.98);
 
+/* stylelint-disable no-invalid-position-declaration */
 @mixin adaptive-clamp(
   $property,
   $start-size,
@@ -104,3 +105,4 @@ $max-width-container: $container-width + ($main-offset * 2);
     }
   }
 }
+/* stylelint-enable no-invalid-position-declaration */
