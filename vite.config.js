@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [SassGlob(), imageOptimizerPlugin(), removeAttributes()],
   build: {
     rollupOptions: {
-      input: sync('src/**/*.html'.replace(/\\/g, '/')),
+      input: sync('src/**/!(_)*.html'.replace(/\\/g, '/')),
       output: {
         assetFileNames: (assetInfo) => {
           let extType = assetInfo.name;
