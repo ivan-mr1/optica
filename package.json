@@ -23,8 +23,8 @@
       "prettier --write"
     ],
     "*.{css,scss}": [
-      "stylelint --fix --max-warnings=0",
-      "prettier --write"
+      "prettier --write",
+      "stylelint --fix --max-warnings=0"
     ],
     "*.{json,md}": [
       "prettier --write"
