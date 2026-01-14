@@ -1,68 +1,66 @@
 import ProductCard from '../product-card/ProductCard';
+import { I18N } from '../constants.js';
 
 export default class RenderProductList {
-  constructor(containerSelector, products = []) {
+  defaultSettings = {
+    emptyClass: 'products__empty',
+  };
+
+  defaultI18n = {
+    emptyMessage: I18N.PRODUCTS_NOT_FOUND,
+  };
+
+  constructor(containerSelector, products = [], storage = {}, options = {}) {
     this.container = document.querySelector(containerSelector);
     this.products = products;
-    this.cards = []; // Массив экземпляров классов ProductCard
+    this.cards = [];
+    this.storage = storage;
+    this.settings = { ...this.defaultSettings, ...options.settings };
+    this.i18n = { ...this.defaultI18n, ...options.i18n };
   }
 
   /**
    * Рендерит список карточек
-   * @param {Array} productsSlice - массив продуктов (например, срез для пагинации)
+   * @param {Array} productsSlice - массив продуктов
    */
   render(productsSlice = this.products) {
     if (!this.container) {
-      console.warn('Container not found');
+      console.warn('Container for ProductList not found');
       return;
     }
 
-    // 1. Сначала очищаем старые карточки и их слушатели!
     this.clear();
 
     if (productsSlice.length === 0) {
-      this.container.innerHTML =
-        '<li class="products__empty">Товари не знайдено</li>';
+      const emptyEl = document.createElement('li');
+      emptyEl.className = this.settings.emptyClass;
+      emptyEl.textContent = this.i18n.emptyMessage;
+      this.container.append(emptyEl);
       return;
     }
 
-    // 2. Используем DocumentFragment для минимизации перерисовок DOM
     const fragment = document.createDocumentFragment();
 
     productsSlice.forEach((product) => {
-      const card = new ProductCard(product);
-      this.cards.push(card);
+      const card = new ProductCard(product, this.storage);
 
-      // card.render() возвращает готовый элемент <li>
+      this.cards.push(card);
       fragment.append(card.render());
     });
 
-    // 3. Вставляем всё в DOM одним махом
     this.container.append(fragment);
   }
 
-  /**
-   * Обновляет исходный массив продуктов
-   */
   updateProducts(products) {
     this.products = products || [];
   }
 
-  /**
-   * Полная очистка списка с удалением слушателей событий
-   */
   clear() {
     if (!this.container) {
       return;
     }
 
-    // Вызываем destroy у каждой карточки, чтобы снять document.addEventListener
-    this.cards.forEach((card) => {
-      if (typeof card.destroy === 'function') {
-        card.destroy();
-      }
-    });
-
+    this.cards.forEach((card) => card.destroy());
     this.container.innerHTML = '';
     this.cards = [];
   }

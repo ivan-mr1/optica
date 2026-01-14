@@ -1,10 +1,12 @@
+import { STATES } from '../constants.js';
+
 export default class CounterStorage {
   constructor(counterSelector, storage, eventName) {
-    this.counter = document.querySelector(counterSelector);
-    this.storage = storage; // Экземпляр класса Storage
-    this.eventName = eventName; // Например, 'favorite:updated' или 'cart:updated'
+    this.counters = document.querySelectorAll(counterSelector);
+    this.storage = storage;
+    this.eventName = eventName;
 
-    if (!this.counter || !this.storage) {
+    if (this.counters.length === 0 || !this.storage) {
       return;
     }
 
@@ -12,30 +14,25 @@ export default class CounterStorage {
   }
 
   init() {
-    // 1. Первоначальный расчет при загрузке
     this.update();
 
-    // 2. Слушаем глобальное событие обновления данных
     document.addEventListener(this.eventName, () => {
       this.update();
     });
   }
 
   update() {
-    // Получаем массив всех ID из хранилища
     const items = this.storage.get();
-
-    // Считаем общее количество.
-    // Если в массиве [1, 2, 2, 3], то count будет 4.
     const count = items.length;
 
-    this.counter.textContent = count;
+    this.counters.forEach((counter) => {
+      counter.textContent = count;
 
-    // Управляем видимостью (класс из твоих стилей)
-    if (count > 0) {
-      this.counter.classList.remove('is-hidden');
-    } else {
-      this.counter.classList.add('is-hidden');
-    }
+      if (count > 0) {
+        counter.classList.remove(STATES.HIDDEN);
+      } else {
+        counter.classList.add(STATES.HIDDEN);
+      }
+    });
   }
 }
