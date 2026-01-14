@@ -1230,7 +1230,7 @@ class z {
     description: 'product-details__description',
     article: 'product-details__article',
     actions: 'product-details__actions',
-    buyBtn: 'product-details__btn button',
+    buyBtn: 'product-details__btn button button--card',
     favoriteBtn: 'product-details__favorite-btn',
     active: f.ACTIVE,
     inCart: f.IN_CART,

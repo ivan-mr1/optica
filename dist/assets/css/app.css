@@ -1766,13 +1766,6 @@ body:after {
 }
 .product-details__btn {
   min-width: 12.5rem;
-  color: var(--color-orange);
-  border: 0.0625rem solid var(--color-orange);
-}
-.product-details__btn.is-in-cart {
-  color: var(--color-white);
-  background-color: var(--color-orange);
-  pointer-events: none;
 }
 .product-details__favorite-btn {
   display: -webkit-box;

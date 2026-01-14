@@ -69,14 +69,6 @@
 
   &__btn {
     min-width: rem(200);
-    color: var(--color-orange);
-    border: 1px solid var(--color-orange);
-
-    &.is-in-cart {
-      color: var(--color-white);
-      background-color: var(--color-orange);
-      pointer-events: none;
-    }
   }
 
   &__favorite-btn {
