@@ -27,8 +27,29 @@
       href="./assets/img/favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="./assets/img/favicon/site.webmanifest" />
+    <link
+      rel="preload"
+      href="./assets/fonts/Montserrat-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Montserrat-SemiBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/Allura-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <script type="module" src="./assets/js/app.js"></script>
-    <link rel="stylesheet" href="./assets/css/app.css">
+    <link rel="stylesheet" href="./assets/css/app.css" />
   </head>
 
   <body>
@@ -223,18 +244,15 @@
                   <a href="/index.html" class="breadcrumbs__link">Головна</a>
                 </li>
                 <li class="breadcrumbs__item">
-                  <span class="breadcrumbs__separator">/</span>
-                </li>
-                <li class="breadcrumbs__item">
                   <a href="/index.html#products" class="breadcrumbs__link"
                     >Каталог</a
                   >
                 </li>
                 <li class="breadcrumbs__item">
-                  <span class="breadcrumbs__separator">/</span>
-                </li>
-                <li class="breadcrumbs__item">
-                  <span class="breadcrumbs__current" data-product-breadcrumb
+                  <span
+                    data-product-breadcrumb
+                    class="breadcrumbs__current"
+                    aria-current="page"
                     >...</span
                   >
                 </li>

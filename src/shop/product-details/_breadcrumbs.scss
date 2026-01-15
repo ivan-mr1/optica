@@ -7,19 +7,28 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: rem(10);
-    color: var(--color-grey);
+    gap: rem(6);
+    color: var(--color-dark);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    & + &::before {
+      content: '/';
+      margin: 0 7px 0 2px;
+      opacity: 0.8;
+    }
   }
 
   &__link {
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: var(--color-dark);
+    @include hover {
+      color: var(--color-orange);
     }
   }
 
   &__current {
-    color: var(--color-dark);
+    color: var(--color-orange);
   }
 }
